@@ -10,6 +10,7 @@ The full schema design is in the current plan in `docs/plans/` ("Data schema"). 
 - A "~" estimate is stored as `low = high` with `singleEstimate: true`.
 - Every money value states `basis`: `first_of_kind`, `repeat` or `unknown`.
 - A paused or stopped system must state its `bindingConstraint`.
+- Every floor assembly has a ceiling/soffit finish layer (role `ceiling`; structural soffits don't count), even if unknown. Timber floors flag "fire-rated ceiling needed for REI 60? (to confirm with the engineer)". A floor total with an unknown ceiling shows "ceiling not included".
 
 ## Grades and sources
 
