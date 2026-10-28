@@ -7,5 +7,7 @@ export default defineConfig({
   test: {
     include: ['src/**/*.test.{ts,tsx}', 'scripts/**/*.test.ts', 'spikes/**/*.test.{ts,tsx}'],
     environment: 'node',
+    // Forks workers intermittently time out starting on this Windows machine (seen twice); threads have been stable.
+    pool: 'threads',
   },
 });
