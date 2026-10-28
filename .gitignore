@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+*.local
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# Local copy of the whole Hermes skills store; only the curated set in .claude/skills is tracked
+/skills/
+
+# Per-user Claude Code settings
+.claude/settings.local.json
