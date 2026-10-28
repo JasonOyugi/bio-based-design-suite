@@ -1,0 +1,6 @@
+/* Temporary neutral styles until DESIGN.md tokens exist (Phase 2) */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #fff; color: #1a1a1a; }
+.app { min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
+.app-header, .app-footer { padding: 8px 16px; }
+.disclaimer { margin: 0; font-size: 0.8125rem; }
