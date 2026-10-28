@@ -7,7 +7,7 @@
 - **Placeholders look different everywhere:** hatched or italic styling plus a "PH" tag on every placeholder value, row, layer and total that depends on one. Indicative (unknown-thickness) layers in drawn sections are hatched and labelled "indicative".
 - **Grades are always visible** next to the number they qualify (tag or column), in tables, sections and exports.
 - **Check states:** `meets` / `straddles` / `misses` / `not_assessed`, each with an icon or text as well as colour (never colour alone). v0.1 checks say "Data check", never "OK".
-- **Ranges:** formatted `low–high unit` with tabular numerals; `~value` for single estimates. Currency shown with code.
+- **Ranges:** the central value prominently, with `low–high` beside it, in tabular numerals; `~value` for single estimates; say so when the central is only the midpoint. Currency shown with code.
 - **Carbon sits beside cost**, in its own column or panel, never combined into cost.
 - **Sections and plans:** SVG, to scale, with a scale bar.
 - **Layout:** works at 1366 px wide and is usable on a tablet (pointer events, touch targets ≥ 40 px, no hover-only actions).

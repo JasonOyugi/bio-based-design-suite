@@ -4,7 +4,7 @@ The full schema design is in the current plan in `docs/plans/` ("Data schema"). 
 
 ## Evidence numbers vs design inputs
 
-- **Evidence numbers** (prices, dimensions of products and layers, densities, carbon, performance, route charges, FX, lead times) are always a `MetricValue`: `{low, high, unit, grade, source, sourceType, date, validatedBy?, note?, toConfirm?, singleEstimate?, basis?}`. Never a bare number.
+- **Evidence numbers** (prices, dimensions of products and layers, densities, carbon, performance, route charges, FX, lead times) are always a `MetricValue`: `{low, central?, high, unit, grade, source, sourceType, date, validatedBy?, note?, toConfirm?, singleEstimate?, basis?}` with `low ≤ central ≤ high`. Never a bare number.
 - **Design inputs** (layout geometry, storey count, project targets such as 45 dB or REI 60) are plain numbers with the unit in the field name (`heightM`, `airborneDb`). They are the user's choices, not claims.
 - A value nobody has given us is an `UnknownValue` (`{unknown: true, unit, toConfirm[]}`), never a guess. Unknowns propagate: a quantity or cost built on one is reported as a gap and excluded from totals, and the total says so.
 - A "~" estimate is stored as `low = high` with `singleEstimate: true`.
@@ -15,7 +15,7 @@ The full schema design is in the current plan in `docs/plans/` ("Data schema"). 
 
 - Grade order, weakest to strongest: `placeholder` < `published_spec` < `engineering_judgement` < `quote_or_QS` < `prototype_tested` < `accredited_lab_tested` < `live_project` < `repeat_project`. A derived value takes the **weakest** grade of its inputs.
 - `source` is an id in `data/sources/`. A `published_spec` value must cite a source with a URL and access date (grounded-citations ledger). Anything not sourced stays `placeholder`.
-- Supplier `name` is set only for names Jason has confirmed; otherwise only the alias (e.g. "Supplier A (EU, CLT)") exists.
+- Supplier `name` is set only for names Jason has confirmed; otherwise only the alias (e.g. "Supplier A (EU, CLT)", "Local ready-mix supplier") exists. v0.1 seeds aliases only. A real name never appears beside a price that supplier didn't quote.
 
 ## Files
 
@@ -34,5 +34,5 @@ The full schema design is in the current plan in `docs/plans/` ("Data schema"). 
 
 ## Maths
 
-- Ranges use interval arithmetic and treat inputs as independent worst-case bounds. Midpoints are used only for sorting and weighting, and are labelled as such.
+- Ranges use interval arithmetic and treat inputs as independent worst-case bounds. The central estimate is carried alongside by applying the same operation to the centrals. When a value has no stated `central`, the midpoint is used and flagged ("central = midpoint"). Central values weight % validated and the call list.
 - Never net carbon into cost. Keep first-of-kind and repeat cost labelled.
