@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mock B · System design · Analysis book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="b.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="ply" width="40" height="3" patternUnits="userSpaceOnUse"><rect width="40" height="3" fill="#fff"/><path d="M0 3H40" stroke="#1b2a4a" stroke-width=".6"/></pattern>
+    <pattern id="timber" width="110" height="24" patternUnits="userSpaceOnUse"><rect width="110" height="24" fill="#fff"/><path d="M0 8C28 4 48 11 75 8S100 6 110 8M0 19C24 16 52 22 80 18S104 17 110 19" fill="none" stroke="#1b2a4a" stroke-width=".9"/></pattern>
+    <pattern id="pencil" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#fff"/><path d="M0 0V10" stroke="#9a9ea4" stroke-width="1.6"/></pattern>
+  </defs>
+</svg>
+
+<div class="mock-note">Mock B · Analysis book · Prices are dummy values for layout only. The 275 mm depth target is a mock input. Floor ranges are the engineer pre-screen.</div>
+
+<div class="book">
+  <nav class="rail" aria-label="Screens">
+    <div class="mark">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="1" width="24" height="24" rx="3" fill="#e8efe9"/><path d="M5 8H21M5 13H21M5 18H21" stroke="#7fa4c3" stroke-width="1.4"/><path d="M15 3V23M17.5 3V23" stroke="#d98a80" stroke-width="1.2"/></svg>
+      <span>Bio-based<br>Design Suite</span>
+    </div>
+    <div class="tabs-v">
+      <a href="#">Home</a>
+      <a href="#">Building form</a>
+      <a href="#">Layout</a>
+      <a href="#" aria-current="page">System design</a>
+      <a href="boq.html">Schedule &amp; BOQ</a>
+      <a href="#">Compare</a>
+      <span class="sep" aria-hidden="true"></span>
+      <a href="#">Library</a>
+      <a href="#">Validation log</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="page-head">
+      <h1>System design<small>Mid-rise apartment block · Nairobi · 6 storeys, 18 × 12 m (placeholder geometry) · KES</small></h1>
+      <div class="folios" role="tablist" aria-label="Element">
+        <button role="tab" aria-selected="true">Floors</button>
+        <button role="tab" aria-selected="false">Walls</button>
+        <button role="tab" aria-selected="false">Roof</button>
+        <button role="tab" aria-selected="false">Frame</button>
+      </div>
+      <div class="ph-label" role="note">PLACEHOLDER DATA – INTERNAL<small>0 % of cost validated · shown until 80 %</small></div>
+    </div>
+    <p class="targets">Targets: fire <b>REI 60</b> · airborne <b>≥ 45 dB</b> · impact <b>≤ 62 dB</b> · imposed <b>1.5 kN/m²</b> · largest bay <b>3.0 m</b> · max floor depth <b>275 mm</b> <span class="mock">(mock target)</span></p>
+
+    <section style="margin-top:16px" aria-labelledby="t-an">
+      <h2 id="t-an">Suspended floors<span class="sub">1,080 m² over 5 levels · the five check columns are data checks: they compare data, never calculate</span></h2>
+      <div class="tbl-wrap" style="margin-top:8px">
+      <table class="an">
+        <thead><tr>
+          <th>Level</th><th class="r">Area m²</th><th>Assembly</th>
+          <th class="r">Carbon A1–A3<br>kgCO₂e/m²</th><th class="r money">Cost KES/m²<br>from BOQ</th><th class="r">Cost vs<br>baseline</th>
+          <th class="money">Acoustic</th><th>Fire</th><th>Depth</th><th>Span</th><th>Budget</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><b>L1</b></td><td class="r v">216</td>
+            <td><button class="pick" aria-haspopup="listbox"><span><span class="code">F-00</span>Baseline beam and block</span></button><span class="warn">Ceiling not included</span></td>
+            <td class="r v"><span class="c">125</span><span class="mid">mid</span> <span class="g g-ej">EJ</span><span class="lh">110–140</span></td>
+            <td class="r v money pencil"><span class="c">6,100</span> <span class="g g-ph">PH</span><span class="lh">5,200–7,250</span><span class="sm">excl. tile, ceiling</span></td>
+            <td class="r v">1.00<span class="sm">by definition</span></td>
+            <td class="money"><span class="ck ck-straddles"><i></i>Straddles</span><span class="ckv">air 50–55</span><span class="ckv">imp 58–65</span></td>
+            <td><span class="ck ck-na"><i></i>Not assessed</span><span class="ckv">not stated</span></td>
+            <td><span class="ck ck-meets"><i></i>Meets</span><span class="ckv">~240 mm</span></td>
+            <td><span class="ck ck-meets"><i></i>Meets</span><span class="ckv">at 3.0 m</span></td>
+            <td><span class="ck ck-na"><i></i>Not assessed</span><span class="ckv">no target set</span></td>
+          </tr>
+          <tr class="sel">
+            <td><b>L2–L5</b><span class="sm">4 levels</span></td><td class="r v">864</td>
+            <td><button class="pick" aria-haspopup="listbox"><span><span class="code">F-03B</span>Cassette with topping</span></button><span class="warn">Ceiling not included</span></td>
+            <td class="r v"><span class="c">62.5</span><span class="mid">mid</span> <span class="g g-ej">EJ</span><span class="lh">55–70</span></td>
+            <td class="r v money pencil"><span class="c">4,100</span> <span class="g g-ph">PH</span><span class="lh">3,300–5,200</span><span class="sm">excl. topping, ribs, ceiling</span></td>
+            <td class="r v"><span class="c">1.225</span><span class="mid">mid</span> <span class="g g-ej">EJ</span><span class="lh">1.10–1.35</span></td>
+            <td class="money"><span class="ck ck-meets"><i></i>Meets</span><span class="ckv">air 52–57</span><span class="ckv">imp 55–62</span></td>
+            <td><span class="ck ck-na"><i></i>Not assessed</span><span class="ckv">not stated</span></td>
+            <td><span class="ck ck-meets"><i></i>Meets</span><span class="ckv">245–270 mm</span></td>
+            <td><span class="ck ck-meets"><i></i>Meets</span><span class="ckv">at 3.0 m</span></td>
+            <td><span class="ck ck-na"><i></i>Not assessed</span><span class="ckv">no target set</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="targets" style="margin-top:8px">EJ engineering judgement (Engineer pre-screen, draft; 3 items to confirm) · PH placeholder, pencilled in · cost vs baseline is the pre-screen ratio, never added into cost · cost KES/m² is dummy and excludes gap lines, so it is not comparable between options · mid = central is the midpoint of the range · ~ = single estimate</p>
+    </section>
+
+    <div class="sd-lower">
+      <section aria-labelledby="t-ck">
+        <div style="display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between">
+          <h2 id="t-ck">Checks for L2–L5 · F-03B</h2>
+          <span class="dc">Data check · method grade EJ</span>
+        </div>
+        <div class="seg" role="tablist" aria-label="Check" style="margin-top:10px">
+          <button role="tab" aria-selected="true">Acoustic</button>
+          <button role="tab" aria-selected="false">Fire</button>
+          <button role="tab" aria-selected="false">Depth / headroom</button>
+          <button role="tab" aria-selected="false">Span</button>
+          <button role="tab" aria-selected="false">Budget</button>
+        </div>
+        <div class="explain">
+          <p><span class="ck ck-meets"><i></i>Meets</span> &nbsp;Airborne 52–57 dB is wholly at or above 45 dB, and impact 55–62 dB wholly at or below 62 dB.</p>
+          <p>Compares the pre-screen ranges with your targets. No acoustic calculation. Descriptors (Rw, R′w or DnT,w; Ln,w or L′nT,w) to confirm with the engineer.</p>
+        </div>
+        <h2 style="font-size:14.5px">Every floor option against the acoustic targets</h2>
+        <div class="tbl-wrap" style="margin-top:6px">
+        <table class="opts">
+          <thead><tr><th>Option</th><th></th><th class="r">Airborne dB</th><th>≥ 45</th><th class="r">Impact dB</th><th>≤ 62</th><th>Grade</th></tr></thead>
+          <tbody>
+            <tr><td class="code">F-00</td><td>Beam and block</td><td class="r v"><span class="c">52.5</span><span class="mid">mid</span> <span class="lh" style="display:inline">50–55</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td class="r v"><span class="c">61.5</span><span class="mid">mid</span> <span class="lh" style="display:inline">58–65</span></td><td><span class="ck ck-straddles"><i></i>Straddles</span></td><td><span class="g g-ej">EJ</span></td></tr>
+            <tr><td class="code">F-01</td><td>Joists + T&amp;G</td><td class="r v"><span class="c">45</span><span class="mid">mid</span> <span class="lh" style="display:inline">42–48</span></td><td><span class="ck ck-straddles"><i></i>Straddles</span></td><td class="r v"><span class="c">75</span><span class="mid">mid</span> <span class="lh" style="display:inline">70–80</span></td><td><span class="ck ck-misses"><i></i>Misses</span></td><td><span class="g g-ej">EJ</span></td></tr>
+            <tr><td class="code">F-01A</td><td>Joists + T&amp;G + screed</td><td class="r"><span class="gap">not stated</span></td><td><span class="ck ck-na"><i></i>Not assessed</span></td><td class="r"><span class="gap">not stated</span></td><td><span class="ck ck-na"><i></i>Not assessed</span></td><td>—</td></tr>
+            <tr><td class="code">F-02</td><td>I-joist + topping</td><td class="r v"><span class="c">52.5</span><span class="mid">mid</span> <span class="lh" style="display:inline">50–55</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td class="r v"><span class="c">62</span><span class="mid">mid</span> <span class="lh" style="display:inline">58–66</span></td><td><span class="ck ck-straddles"><i></i>Straddles</span></td><td><span class="g g-ej">EJ</span></td></tr>
+            <tr><td class="code">F-03A</td><td>Cassette, 2 T&amp;G <span class="sm">row 3 applies to 3A? to confirm</span></td><td class="r v"><span class="c">54.5</span><span class="mid">mid</span> <span class="lh" style="display:inline">52–57</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td class="r v"><span class="c">58.5</span><span class="mid">mid</span> <span class="lh" style="display:inline">55–62</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td><span class="g g-ej">EJ</span></td></tr>
+            <tr class="sel"><td class="code">F-03B</td><td><b>Cassette, ply + topping</b></td><td class="r v"><span class="c">54.5</span><span class="mid">mid</span> <span class="lh" style="display:inline">52–57</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td class="r v"><span class="c">58.5</span><span class="mid">mid</span> <span class="lh" style="display:inline">55–62</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td><span class="g g-ej">EJ</span></td></tr>
+            <tr><td class="code">F-04</td><td>Cassette + strawboard <span class="sm">based on F-03B; 3A or 3B? to confirm</span></td><td class="r v"><span class="c">56</span><span class="mid">mid</span> <span class="lh" style="display:inline">54–58</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td class="r v"><span class="c">57</span><span class="mid">mid</span> <span class="lh" style="display:inline">54–60</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td><span class="g g-ej">EJ</span></td></tr>
+            <tr><td class="code">F-05</td><td>Cassette as formwork</td><td class="r v"><span class="c">55</span><span class="mid">mid</span> <span class="lh" style="display:inline">52–58</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td class="r v"><span class="c">61.5</span><span class="mid">mid</span> <span class="lh" style="display:inline">58–65</span></td><td><span class="ck ck-straddles"><i></i>Straddles</span></td><td><span class="g g-ej">EJ</span></td></tr>
+            <tr><td class="code">F-06</td><td>Cassette + timber soffit <span class="sm">needs prototype testing</span></td><td class="r v"><span class="c">51</span><span class="mid">mid</span> <span class="lh" style="display:inline">48–54</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td class="r v"><span class="c">64</span><span class="mid">mid</span> <span class="lh" style="display:inline">60–68</span></td><td><span class="ck ck-straddles"><i></i>Straddles</span></td><td><span class="g g-ej">EJ</span></td></tr>
+            <tr><td class="code">F-07</td><td>Timber-concrete composite</td><td class="r v"><span class="c">57</span><span class="mid">mid</span> <span class="lh" style="display:inline">54–60</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td class="r v"><span class="c">58.5</span><span class="mid">mid</span> <span class="lh" style="display:inline">55–62</span></td><td><span class="ck ck-meets"><i></i>Meets</span></td><td><span class="g g-ej">EJ</span></td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section class="sketch" aria-labelledby="t-sk">
+        <h2 id="t-sk">Section · F-03B<span class="sub">along a rib, at central depth</span></h2>
+        <svg viewBox="0 0 400 355" role="img" aria-label="Section of F-03B to scale: 18 mm plywood on a 150 mm rib, above a pencil-hatched indicative band of 77 to 102 mm">
+          <rect x="60" y="30" width="270" height="18" fill="url(#ply)" stroke="#1b2a4a" stroke-width="1.4"/>
+          <rect x="60" y="48" width="270" height="150" fill="url(#timber)" stroke="#1b2a4a" stroke-width="1.4"/>
+          <rect x="60" y="198" width="270" height="89.5" fill="url(#pencil)" stroke="#5c6066" stroke-width="1.4" stroke-dasharray="7 5"/>
+          <text x="195" y="249" text-anchor="middle" font-size="19" font-style="italic" fill="#5c6066" font-weight="700" stroke="#fff" stroke-width="5" paint-order="stroke">indicative</text>
+          <g stroke="#1b2a4a" stroke-width="1.2">
+            <path d="M44 30V287.5M40 30H48M40 48H48M40 198H48M40 287.5H48"/>
+            <path d="M348 30V287.5M344 30H352M344 287.5H352"/>
+          </g>
+          <g font-size="19" fill="#1b2a4a" text-anchor="end">
+            <text x="37" y="45">18</text><text x="37" y="130">150</text>
+          </g>
+          <text transform="translate(31 243) rotate(-90)" text-anchor="middle" font-size="17" font-style="italic" fill="#5c6066">77–102</text>
+          <text transform="translate(372 159) rotate(-90)" text-anchor="middle" font-size="17" fill="#1b2a4a">245–270 stated · 257.5 mid</text>
+          <g transform="translate(60 312)">
+            <rect width="50" height="7" fill="#1b2a4a"/><rect x="50" width="50" height="7" fill="#fff" stroke="#1b2a4a"/><rect x="100" width="100" height="7" fill="#1b2a4a"/>
+            <g font-size="16" fill="#1b2a4a" text-anchor="middle"><text y="28">0</text><text x="50" y="28">50</text><text x="100" y="28">100</text><text x="200" y="28">200 mm</text></g>
+          </g>
+        </svg>
+        <ul class="lkey">
+          <li><span>Topping</span><span class="gap">thickness unknown</span></li>
+          <li><span>18 mm plywood deck</span><span class="v">18</span><span class="g g-ej">EJ</span></li>
+          <li><span>Ribs 150 × 50 <span class="sm">spacing unknown, not drawn</span></span><span class="v">150</span><span class="g g-ej">EJ</span></li>
+          <li><span>Ceiling / soffit finish <span class="sm">fire-rated for REI 60? to confirm with the engineer</span></span><span class="gap">unknown</span></li>
+          <li style="color:var(--pencil)"><span><i>Indicative: unexplained depth</i><span class="sm">may hold topping, bottom skin?, ceiling; order and position not drawn</span></span><span class="v"><i>77–102</i></span></li>
+        </ul>
+      </section>
+    </div>
+
+    <footer class="foot">
+      <p class="disclaimer" role="note">Exploratory design and cost comparison only. Not structural design, specification or construction documents. Projects need project-specific engineering and approval.</p>
+      <span class="meta">Bio-based Design Suite · Supported by Gatsby Africa</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>
