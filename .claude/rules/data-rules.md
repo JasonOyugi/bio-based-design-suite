@@ -8,6 +8,8 @@ The full schema design is in the current plan in `docs/plans/` ("Data schema"). 
 - **Design inputs** (layout geometry, storey count, project targets such as 45 dB or REI 60) are plain numbers with the unit in the field name (`heightM`, `airborneDb`). They are the user's choices, not claims.
 - A value nobody has given us is an `UnknownValue` (`{unknown: true, unit, toConfirm[]}`), never a guess. Unknowns propagate: a quantity or cost built on one is reported as a gap and excluded from totals, and the total says so.
 - A "~" estimate is stored as `low = high` with `singleEstimate: true`.
+- Every money value states `basis`: `first_of_kind`, `repeat` or `unknown`.
+- A paused or stopped system must state its `bindingConstraint`.
 
 ## Grades and sources
 
@@ -26,6 +28,9 @@ The full schema design is in the current plan in `docs/plans/` ("Data schema"). 
 
 - Validation entries are append-only. A newer entry for the same `MetricRef` supersedes an older one as the effective value; history is never edited or deleted.
 - A `MetricRef` is `collection/id#path`, where array items with an `id` are addressed by id (`assemblies/f-03b#layers[topping].thickness`), so refs survive reordering.
+- `validatedBy` holds a validation entry id, never a name. Who and organisation stay in the Validation Log unless `disclose` is true.
+- Refs and ids are internal keys and may contain names. Screens and exports print display labels (supplier alias, layer label), never raw refs or ids.
+- Partner sources (e.g. the Studio III pre-screen) are `confidential` with a neutral `displayAs`.
 
 ## Maths
 
