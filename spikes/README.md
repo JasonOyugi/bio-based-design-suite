@@ -15,5 +15,5 @@ Run the pages with `npm run spike`; S3 runs from the command line. Template geom
 | # | Verdict | Summary |
 |---|---|---|
 | 001 | VALIDATED, with four schema changes | See [s3-takeoff/README.md](s3-takeoff/README.md) |
-| 002 | pending | |
+| 002 | VALIDATED (three bugs found and fixed) | See [s1-plan-editor/README.md](s1-plan-editor/README.md): needs Draw/Select tools, end point from the event, memoised walls |
 | 003 | pending | |

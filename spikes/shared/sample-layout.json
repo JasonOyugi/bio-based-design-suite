@@ -1,13 +1,60 @@
 {
-  "gridXM": [3, 3, 3, 3, 3, 3],
-  "gridYM": [3, 3, 3, 3],
+  "gridXM": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+  ],
+  "gridYM": [
+    3,
+    3,
+    3,
+    3
+  ],
   "storeys": 6,
   "storeyHeightM": 3,
   "walls": [
-    { "id": "w1", "x1": 0, "y1": 0, "x2": 18, "y2": 0, "type": "external" },
-    { "id": "w2", "x1": 18, "y1": 0, "x2": 18, "y2": 12, "type": "external" },
-    { "id": "w3", "x1": 18, "y1": 12, "x2": 0, "y2": 12, "type": "external" },
-    { "id": "w4", "x1": 0, "y1": 12, "x2": 0, "y2": 0, "type": "external" },
-    { "id": "w5", "x1": 0, "y1": 6, "x2": 18, "y2": 6, "type": "internal_structural" }
+    {
+      "id": "1e828f8b-2fc0-4966-9bac-f1b29716e32c",
+      "x1": 0,
+      "y1": 0,
+      "x2": 18,
+      "y2": 0,
+      "type": "external"
+    },
+    {
+      "id": "2e053c90-fa8f-4174-a8f8-8188e36f7f78",
+      "x1": 18,
+      "y1": 0,
+      "x2": 18,
+      "y2": 12,
+      "type": "external"
+    },
+    {
+      "id": "9d031830-f1e0-48cc-afb3-7c26cf98528b",
+      "x1": 18,
+      "y1": 12,
+      "x2": 0,
+      "y2": 12,
+      "type": "external"
+    },
+    {
+      "id": "2a940755-25dd-4536-8a3b-a0cc3fb2afd6",
+      "x1": 0,
+      "y1": 12,
+      "x2": 0,
+      "y2": 0,
+      "type": "external"
+    },
+    {
+      "id": "f7fc5ce0-2e18-46c9-8e16-2ed2c5bd1a63",
+      "x1": 0,
+      "y1": 6,
+      "x2": 18,
+      "y2": 6,
+      "type": "internal_structural"
+    }
   ]
 }
