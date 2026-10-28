@@ -14,10 +14,10 @@ Spikes ran in order of risk to the product. Code in `spikes/` is throwaway. This
 - **Editor responsiveness:** pointer-move with 300 walls has a median of 7.9 ms, against 7.2 ms with 5 walls. Its p95 of 18 ms is within the harness noise (14–19 ms baseline). Confirm on a tablet.
 - **3D:** 60 fps normally and with 2,400 instances; one-finger touch orbit works.
 
-## Open items for Jason
-- **Proposed:** the "ceiling not included" warning also shows on building totals that include that floor (plan §2.5).
-- **Proposed (S3):** draw unexplained residual depth as one hatched "indicative" band in sections.
-- **Tablet:** confirm 3D performance and touch drawing on a real tablet; the measurements so far are from this laptop and Chrome emulation.
+## Open items, answered by Jason (28 Oct 2026)
+- **Yes:** the "ceiling not included" warning also shows on building totals that include that floor (plan §2.5).
+- **Yes:** unexplained residual depth is drawn as one hatched "indicative" band in sections (plan §2.3).
+- **Deferred:** the real-tablet test (3D performance, touch drawing) moves to the Phase 4 Layout screen. The measurements so far are from this laptop and Chrome emulation.
 
 ## Fold-in map
 - S3 `range.ts` and `takeoff.ts` go to `src/domain/` (Phase 3).
