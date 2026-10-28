@@ -1,0 +1,13 @@
+{
+  "gridXM": [3, 3, 3, 3, 3, 3],
+  "gridYM": [3, 3, 3, 3],
+  "storeys": 6,
+  "storeyHeightM": 3,
+  "walls": [
+    { "id": "w1", "x1": 0, "y1": 0, "x2": 18, "y2": 0, "type": "external" },
+    { "id": "w2", "x1": 18, "y1": 0, "x2": 18, "y2": 12, "type": "external" },
+    { "id": "w3", "x1": 18, "y1": 12, "x2": 0, "y2": 12, "type": "external" },
+    { "id": "w4", "x1": 0, "y1": 12, "x2": 0, "y2": 0, "type": "external" },
+    { "id": "w5", "x1": 0, "y1": 6, "x2": 18, "y2": 6, "type": "internal_structural" }
+  ]
+}
