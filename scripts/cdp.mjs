@@ -12,7 +12,8 @@ export async function open(url, { width = 1366, height = 768, port = 9223, profi
     try { targets = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json(); if (targets.length) break; } catch {}
     await sleep(200);
   }
-  const page = targets.find((t) => t.type === 'page');
+  const page = targets?.find((t) => t.type === 'page');
+  if (!page) { proc.kill(); throw new Error(`Chrome did not start a page target on port ${port}`); }
   const ws = new WebSocket(page.webSocketDebuggerUrl);
   await new Promise((r) => ws.addEventListener('open', r, { once: true }));
   let id = 0; const pending = new Map(); const listeners = [];
@@ -33,5 +34,6 @@ export async function open(url, { width = 1366, height = 768, port = 9223, profi
   await send('Page.navigate', { url });
   await loaded; await sleep(1500);
   const close = async () => { try { await send('Browser.close'); } catch {} ws.close(); proc.kill(); };
-  return { send, evaluate, close, sleep };
+  const on = (listener) => listeners.push(listener);
+  return { send, evaluate, close, sleep, on };
 }

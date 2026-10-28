@@ -240,3 +240,10 @@ tr.sel td:first-child { box-shadow: inset 3px 0 0 var(--ink); }
 .totals .warn { white-space: normal; }
 .sd .rng { display: inline-grid; grid-template-columns: auto auto; justify-items: end; align-items: baseline; gap: 0 3px; }
 .sd .rng .lh { grid-column: 1 / -1; }
+
+/* Scroll cue: shadows appear at an edge only while the table can scroll that way */
+.tbl-wrap { background:
+  linear-gradient(to right, var(--sheet) 30%, transparent) left / 40px 100% no-repeat local,
+  linear-gradient(to left, var(--sheet) 30%, transparent) right / 40px 100% no-repeat local,
+  radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, .2), transparent) left / 14px 100% no-repeat scroll,
+  radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .2), transparent) right / 14px 100% no-repeat scroll; }

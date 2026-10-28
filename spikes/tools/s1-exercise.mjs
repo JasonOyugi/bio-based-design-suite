@@ -1,7 +1,7 @@
 // Drives the S1 plan editor with real mouse, keyboard, wheel and touch input via CDP and reports observed results.
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { open } from './cdp.mjs';
+import { open } from '../../scripts/cdp.mjs';
 
 const OUT = process.argv[2];
 const URL = 'http://localhost:5174/s1-plan-editor/';

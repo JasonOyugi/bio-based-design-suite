@@ -1,7 +1,7 @@
 // Drives the S2 massing page in headless Chrome via CDP and reports observed results. Usage: node s2-exercise.mjs <out-dir>
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { open } from './cdp.mjs';
+import { open } from '../../scripts/cdp.mjs';
 
 const OUT = process.argv[2];
 const URL = 'http://localhost:5174/s2-massing/';
