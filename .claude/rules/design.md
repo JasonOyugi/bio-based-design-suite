@@ -1,6 +1,6 @@
 # Design rules
 
-`DESIGN.md` (written in Phase 2) is the design source of truth. Until then, these rules apply.
+`DESIGN.md` (direction A, "Drawing sheet", 29 Oct 2026) is the design source of truth for tokens and components; `npm run tokens` generates `src/styles/tokens.css` from it, and a test fails if the two drift. These rules are the invariants it must keep.
 
 - **Audience and tone:** a professional tool for QS, engineers and developers in East Africa. Dense but calm; it must not look templated. Our own identity: nothing from BASE's branding, wording or visuals.
 - **Tokens only:** colours, type, spacing and radii come from `src/styles/tokens.css` (generated from `DESIGN.md`). No hard-coded colours in components.
