@@ -116,7 +116,7 @@ Review, then commit: `design: mock direction B (analysis book)`.
 **Files:** `design/mocks/a/*`, `design/mocks/shots/a-*.png`.
 1. Placeholders are "pencilled": violet, italic, hatched, with PH. The engineer's stated figures (graded `engineering_judgement`) and validated values stay "inked".
 2. Raise A's smallest condensed text (labels, table heads, grade tags, notes); our reading of "increase" is at least 12 px.
-3. Apply the new data approach to the mock (§9): five dummy suppliers, a dummy for every missing dimension, spacing, thickness, ceiling and rate, and complete totals for F-00 vs F-03B. Dummy layers are drawn with a dashed violet outline (proposed). The unexplained depth band stays at the bottom with its label.
+3. Apply the new data approach to the mock (§9): five dummy suppliers, a dummy for every missing dimension, spacing, thickness, ceiling and rate, and complete totals for F-00 vs F-03B. Dummy layers are drawn with a dashed violet outline (confirmed 29 Oct 2026). The unexplained depth band stays at the bottom with its label.
 4. Re-shoot. **Show Jason the revised BOQ screenshot before writing `DESIGN.md`.** Direction B stays in `design/mocks/b/` as a record.
 
 ### Task 2.5a: Fix the test-worker timeout (before Task 2.6)
@@ -170,10 +170,22 @@ Recorded in the v0.1 plan (§2.1 goal 2, Phase 3 items 12–14, §10 and Appendi
 - No public price research. Exactly five dummy suppliers, all aliases, every value a dummy marked PH: Supplier EU (Austria), ZA (South Africa), UG (Uganda), KE (Kenya) and TZ (Tanzania), with the products and routes in the v0.1 plan, Phase 3 item 12.
 - The engineer's floor figures stay exactly as given. Every missing dimension, spacing, thickness, ceiling layer and rate gets a dummy (grade `placeholder`, PH, `toConfirm` "to confirm with the engineer/supplier"), so every BOQ is complete and totals compare like for like. "Gap" stays only for what genuinely can't be priced. The ceiling is a priced dummy line and keeps the "fire-rated for REI 60?" flag.
 
-**Our reading, to confirm with Jason** (not his words):
+**Readings Jason confirmed on 29 Oct 2026:**
 
 - Missing performance figures (e.g. F-01A's acoustics) are not dimensions or rates, so they are not filled; those checks stay "not assessed". Filling them would make checks run on invented data.
 - A layer no supplier offers (tile, ceiling board, strawboard) is priced as a dummy supply-and-fix trade rate marked "no supplier in library", which keeps "exactly five suppliers".
-- Questions that are not values ("mesh in topping?", "bottom skin?", "3A or 3B?") stay as `toConfirm` and add no line. Open question: should F-00 and F-07 get a dummy mesh line for like-for-like totals?
-- If dummy layers exceed a stated depth, the section flags the inconsistency; the engineer's figure is never adjusted.
 - Dummy layers are drawn with their material symbol, a dashed violet outline and a "dummy" label.
+
+**Still our reading, to confirm with Jason:**
+
+- Questions that are not values ("bottom skin?", "3A or 3B?") stay as `toConfirm` and add no line. "Mesh in topping?" is answered: a dummy mesh line on every concrete-topped floor (§10).
+- If dummy layers exceed a stated depth, the section flags the inconsistency; the engineer's figure is never adjusted.
+
+## 10. Jason's decisions, second round (29 Oct 2026)
+
+1. **Dummy rates are calibrated to the engineer's pre-screen ratio**, and the BOQ says so on the page: "dummy rates calibrated to the engineer's pre-screen ratio". Applied in the Phase 3 seed data, not in the mocks.
+2. **A dummy mesh line on every concrete-topped floor:** F-00, F-02, F-03B, F-05 and F-07.
+3. **The three readings are accepted:** trade rates for layers no supplier offers, missing performance figures stay "not assessed", and dummy layers get a dashed violet outline.
+4. **Phase 2 approved.** Write `DESIGN.md` and the tokens for direction A, fix the test-worker timeout (Task 2.5a), then push.
+5. **BASE parity checklist** added to the v0.1 plan's Phase 5 acceptance and tracked through Phase 4 (`docs/parity.md`).
+6. **Pace:** go through Phase 3 and the Phase 4 floors vertical slice without stopping, except for genuine 1-3-1 decisions. Stop and show Jason when the slice runs in the real app.
