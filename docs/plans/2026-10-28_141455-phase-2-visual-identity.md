@@ -6,7 +6,7 @@
 
 **Sources:** brief §7 (Phase 2 row) and §4 (screens 4 and 5); v0.1 plan §5 (outline), §2.5–2.8 and Appendix A; `.claude/rules/design.md`; skills `frontend-design`, `claude-design`, `design-md`, and `popular-web-designs` (vocabulary only).
 
-**Status:** started 28 Oct 2026. Tasks 2.0–2.4 run now. Task 2.5 onwards waits for Jason's pick.
+**Status:** started 28 Oct 2026. Tasks 2.0–2.3 done. Jason picked direction A on 29 Oct 2026 (§8); Task 2.4 is under way, and `DESIGN.md` waits for his look at the revised BOQ.
 
 ---
 
@@ -23,6 +23,8 @@
 3. **Deferred:** the real-tablet test moves to the Phase 4 Layout screen.
 
 ## 3. What the mocks show, and where each number comes from
+
+*This section records mock round 1 (28 Oct 2026). Task 2.4 and §9 supersede its suppliers, gaps and ceiling handling.*
 
 Both directions show the same content, so Jason compares identity rather than data.
 
@@ -110,8 +112,15 @@ Review, then commit: `design: mock direction B (analysis book)`.
 
 **Then stop and show Jason.** He picks a direction, or a mix, and the iteration notes.
 
-### Task 2.4: One iteration on the chosen direction (after Jason's pick)
-Apply his notes to the chosen mock and re-shoot. The other direction stays in `design/mocks/` as a record.
+### Task 2.4: One iteration on direction A (Jason's pick, 29 Oct 2026)
+**Files:** `design/mocks/a/*`, `design/mocks/shots/a-*.png`.
+1. Placeholders are "pencilled": violet, italic, hatched, with PH. The engineer's stated figures (graded `engineering_judgement`) and validated values stay "inked".
+2. Raise A's smallest condensed text (labels, table heads, grade tags, notes); our reading of "increase" is at least 12 px.
+3. Apply the new data approach to the mock (§9): five dummy suppliers, a dummy for every missing dimension, spacing, thickness, ceiling and rate, and complete totals for F-00 vs F-03B. Dummy layers are drawn with a dashed violet outline (proposed). The unexplained depth band stays at the bottom with its label.
+4. Re-shoot. **Show Jason the revised BOQ screenshot before writing `DESIGN.md`.** Direction B stays in `design/mocks/b/` as a record.
+
+### Task 2.5a: Fix the test-worker timeout (before Task 2.6)
+`src/App.test.tsx` (jsdom) fails with "Failed to start threads worker" in every run, even alone (seen 28 Oct 2026), so the disclaimer test doesn't run. Use `systematic-debugging`: reproduce, find the root cause (worker start-up versus jsdom import time, Windows Defender scanning, pool settings), fix it in `vite.config.ts`, and prove `npm test` runs all six files three times in a row. Review, then commit: `fix: …` (named after the root cause).
 
 ### Task 2.5: `DESIGN.md`
 **Files:** create `DESIGN.md` at the repo root.
@@ -130,6 +139,8 @@ Apply his notes to the chosen mock and re-shoot. The other direction stays in `d
 Run `simplify-code` on the phase diff. Update the v0.1 plan §5 with what was decided. Push once Jason approves.
 
 ## 6. Decisions likely to come back to Jason (1-3-1, at most three)
+
+*All three answered on 29 Oct 2026; see §8.*
 1. The direction: A, B, or A's drawings in B's ledger.
 2. Where the indicative band sits in a section: at the bottom (the mocks), at the top, or split by the unknown layers (which would need "one band" relaxed).
 3. Tablet layout: the mocks are shot at 1024 (landscape) and 768 (portrait). Which orientation matters most on site?
@@ -142,3 +153,27 @@ Run `simplify-code` on the phase diff. Update the v0.1 plan §5 with what was de
 | Google Fonts unavailable when a mock is opened offline | System fallbacks are set. The screenshots record which fonts loaded. The app self-hosts fonts (Task 2.6) |
 | A direction looks like BASE | Neither uses BASE's colours, wording or layout. The reviewer is asked to check this explicitly |
 | The rubber stamp (A) reads as an approval | It says "PLACEHOLDER DATA – INTERNAL". Violet is reserved for "placeholder", and no screen ever says approved or OK |
+
+## 8. Jason's decisions on the mocks (29 Oct 2026)
+
+1. **Direction A, "Drawing sheet"**, borrowing one idea from B: placeholder values look "pencilled" (violet, italic, hatched) and turn "inked" once validated.
+2. **Readability:** A's smallest condensed text gets bigger (Task 2.4).
+3. **Depth band:** at the bottom of the section, labelled with what it may hold and "order and position not drawn".
+4. **Tablet:** tables scroll in landscape and become stacked rows in portrait. Settled in Phase 4.
+5. **Test worker:** fix the timeout before Task 2.6 (Task 2.5a).
+6. **Order:** show one revised BOQ screenshot (direction A) with complete totals for F-00 vs F-03B before writing `DESIGN.md`.
+
+## 9. Data approach change (29 Oct 2026)
+
+Recorded in the v0.1 plan (§2.1 goal 2, Phase 3 items 12–14, §10 and Appendix A), `.claude/rules/data-rules.md`, `guardrails.md` rule 7, `design.md`, `CLAUDE.md` and a dated amendment at the end of `docs/brief.md`.
+
+- No public price research. Exactly five dummy suppliers, all aliases, every value a dummy marked PH: Supplier EU (Austria), ZA (South Africa), UG (Uganda), KE (Kenya) and TZ (Tanzania), with the products and routes in the v0.1 plan, Phase 3 item 12.
+- The engineer's floor figures stay exactly as given. Every missing dimension, spacing, thickness, ceiling layer and rate gets a dummy (grade `placeholder`, PH, `toConfirm` "to confirm with the engineer/supplier"), so every BOQ is complete and totals compare like for like. "Gap" stays only for what genuinely can't be priced. The ceiling is a priced dummy line and keeps the "fire-rated for REI 60?" flag.
+
+**Our reading, to confirm with Jason** (not his words):
+
+- Missing performance figures (e.g. F-01A's acoustics) are not dimensions or rates, so they are not filled; those checks stay "not assessed". Filling them would make checks run on invented data.
+- A layer no supplier offers (tile, ceiling board, strawboard) is priced as a dummy supply-and-fix trade rate marked "no supplier in library", which keeps "exactly five suppliers".
+- Questions that are not values ("mesh in topping?", "bottom skin?", "3A or 3B?") stay as `toConfirm` and add no line. Open question: should F-00 and F-07 get a dummy mesh line for like-for-like totals?
+- If dummy layers exceed a stated depth, the section flags the inconsistency; the engineer's figure is never adjusted.
+- Dummy layers are drawn with their material symbol, a dashed violet outline and a "dummy" label.

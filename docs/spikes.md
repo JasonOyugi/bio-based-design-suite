@@ -1,5 +1,7 @@
 # Phase 1 spike verdicts (28 Oct 2026)
 
+> **Superseded in part (29 Oct 2026):** unknown dimensions, thicknesses, ceilings and rates are now seeded as dummy placeholders, not left unknown, so "ceiling not included" and the large unexplained-depth figures below describe the spike data only. See `.claude/rules/data-rules.md` and the v0.1 plan, Appendix A.
+
 Spikes ran in order of risk to the product. Code in `spikes/` is throwaway. This file is the lasting record, kept after each spike is folded in and deleted.
 
 | # | Spike | Verdict | What the real build must do |

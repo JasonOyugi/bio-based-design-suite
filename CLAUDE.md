@@ -31,6 +31,6 @@ Available once the Phase 0 scaffold lands:
 
 - No app code without an approved plan. Commit after each task; push at the end of each approved phase. The GitHub repo is private: never make it public.
 - Before every commit an independent reviewer subagent checks the diff (`requesting-code-review`). End of phase: `simplify-code`. When something breaks: `systematic-debugging`.
-- Decisions go to Jason in 1-3-1 format, at most three at a time. Ask rather than invent any supplier, price, dimension or claim.
+- Decisions go to Jason in 1-3-1 format, at most three at a time. Ask rather than invent any supplier, price, dimension or claim; the only exception is the labelled dummy data Jason asked for (`.claude/rules/data-rules.md`).
 - Fresh session per phase; `/compact` with a focus note past ~70% context.
 - Hermes skill mapping: `terminal` → Bash/PowerShell; `write_file`/`read_file`/`search_files` → Write/Read/Grep/Glob; `browser_*` → Chrome integration or Playwright; `delegate_task` → Agent; `skill_view` → Read under `.claude/skills/`; plans go in `docs/plans/`, not `.hermes/plans/`.

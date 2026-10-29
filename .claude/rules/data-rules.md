@@ -6,17 +6,18 @@ The full schema design is in the current plan in `docs/plans/` ("Data schema"). 
 
 - **Evidence numbers** (prices, dimensions of products and layers, densities, carbon, performance, route charges, FX, lead times) are always a `MetricValue`: `{low, central?, high, unit, grade, source, sourceType, date, validatedBy?, note?, toConfirm?, singleEstimate?, basis?}` with `low ≤ central ≤ high`. Never a bare number.
 - **Design inputs** (layout geometry, storey count, project targets such as 45 dB or REI 60) are plain numbers with the unit in the field name (`heightM`, `airborneDb`). They are the user's choices, not claims.
-- A value nobody has given us is an `UnknownValue` (`{unknown: true, unit, toConfirm[]}`), never a guess. Unknowns propagate: a quantity or cost built on one is reported as a gap and excluded from totals, and the total says so.
+- A value nobody has given us is seeded as a **dummy** (Jason, 29 Oct 2026): a `MetricValue` with grade `placeholder`, PH-styled, and `toConfirm` "to confirm with the engineer" (dimensions, spacings, thicknesses, layers) or "to confirm with the supplier" (prices, lead times). Every BOQ is therefore complete and compares like for like. The engineer's figures are never changed to fit a dummy.
+- `UnknownValue` (`{unknown: true, unit, toConfirm[]}`) is kept only for what genuinely can't be priced, and for missing performance figures (checks on those say "not assessed"; our reading, to confirm with Jason). Unknowns propagate: a quantity or cost built on one is reported as a gap and excluded from totals, and the total says so.
 - A "~" estimate is stored as `low = high` with `singleEstimate: true`.
 - Every money value states `basis`: `first_of_kind`, `repeat` or `unknown`.
 - A paused or stopped system must state its `bindingConstraint`.
-- Every floor assembly has a ceiling/soffit finish layer (role `ceiling`; structural soffits don't count), even if unknown. Timber floors flag "fire-rated ceiling needed for REI 60? (to confirm with the engineer)". A floor total with an unknown ceiling shows "ceiling not included", and so does every building total that includes that floor.
+- Every floor assembly has a ceiling/soffit finish layer (role `ceiling`; structural soffits don't count), seeded as a priced dummy until known. Timber floors flag "fire-rated ceiling needed for REI 60? (to confirm with the engineer)". If a ceiling is unknown or unpriced, the floor total shows "ceiling not included", and so does every building total that includes that floor.
 
 ## Grades and sources
 
 - Grade order, weakest to strongest: `placeholder` < `published_spec` < `engineering_judgement` < `quote_or_QS` < `prototype_tested` < `accredited_lab_tested` < `live_project` < `repeat_project`. A derived value takes the **weakest** grade of its inputs.
 - `source` is an id in `data/sources/`. A `published_spec` value must cite a source with a URL and access date (grounded-citations ledger). Anything not sourced stays `placeholder`.
-- Supplier `name` is set only for names Jason has confirmed; otherwise only the alias (e.g. "Supplier A (EU, CLT)", "Local ready-mix supplier") exists. v0.1 seeds aliases only. A real name never appears beside a price that supplier didn't quote.
+- Supplier `name` is set only for names Jason has confirmed; otherwise only the alias exists. v0.1 seeds exactly five aliased dummy suppliers: Supplier EU (Austria), Supplier ZA (South Africa), Supplier UG (Uganda), Supplier KE (Kenya) and Supplier TZ (Tanzania); products and routes are in the v0.1 plan, Phase 3 item 12. A layer no supplier offers is priced as a dummy trade rate marked "no supplier in library" (our reading, to confirm with Jason). A real name never appears beside a price that supplier didn't quote.
 
 ## Files
 

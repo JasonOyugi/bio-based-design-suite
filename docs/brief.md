@@ -128,3 +128,24 @@ Plan → spikes → visual identity (2 mock directions) → schema + engine + te
 - From the mid-rise template I can swap the floor assembly and see the BOQ, cost per m², carbon and import share update. I can also flip a line between imported and regional route, log a validation and watch % validated rise.
 - Adding a product, route, assembly or building type needs only a new JSON file (demonstrated with a test fixture).
 - README explains how to edit data and log validations.
+
+---
+
+## Amendments
+
+**29 Oct 2026 (Jason): data approach for v0.1.** This note overrides the brief text it names.
+
+- **Suppliers (§3.1):** exactly five dummy suppliers, all aliases, every value a dummy marked PH. This replaces "ask me for the supplier list" and the named regional supplier in §3.1; Supplier UG is the regional kiln-dried pine supplier.
+
+| Alias | Products | Routes |
+|---|---|---|
+| Supplier EU (Austria) | CLT, glulam, LVL, I-joists, plywood, OSB, fixings | EU → Mombasa → Nairobi |
+| Supplier ZA (South Africa) | glulam, plywood, structural pine | Durban → Mombasa → Nairobi |
+| Supplier UG (Uganda) | kiln-dried, graded pine sawn timber | Jinja → Nairobi; Jinja → Kigali |
+| Supplier KE (Kenya) | eucalyptus sawn timber and T&G boards; conventional comparators: ready-mix concrete, beam-and-block, hollow block, rebar, light-gauge steel | Nairobi local |
+| Supplier TZ (Tanzania) | pine sawn timber, plywood | Mafinga → Nairobi |
+
+- **Guardrail "never invent" (§5):** dummies Jason asked for are allowed when graded `placeholder`, PH-styled and carrying `toConfirm`. Nothing is presented as real (`.claude/rules/guardrails.md` rule 7).
+- **No public price research.** All prices, route charges, FX and lead times are dummies until validated through the Validation Log.
+- **Unknowns (§2, §3 seed table):** the engineer's floor figures are kept exactly as given. Every missing dimension, spacing, thickness, ceiling layer and rate is filled with a dummy value (grade `placeholder`, PH, `toConfirm` "to confirm with the engineer/supplier"), so every BOQ is complete and totals compare like for like. "Gap" is kept only for things that genuinely can't be priced. The ceiling is a priced dummy line and keeps the "fire-rated for REI 60?" flag.
+- **Visual direction (§7, Phase 2):** direction A, "Drawing sheet". Placeholders are "pencilled" (violet, italic, hatched) and turn "inked" once validated.
