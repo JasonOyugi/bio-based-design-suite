@@ -9,5 +9,7 @@ export default defineConfig({
     environment: 'node',
     // Forks workers intermittently time out starting on this Windows machine (seen twice); threads have been stable.
     pool: 'threads',
+    // DOM tests opt in with `// @vitest-environment happy-dom`. jsdom took 94–113 s to load cold here,
+    // past Vitest's fixed 60 s worker start timeout, so its tests never ran.
   },
 });
