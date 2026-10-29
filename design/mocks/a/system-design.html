@@ -6,7 +6,7 @@
 <title>Mock A · System design · Drawing sheet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="a.css">
 </head>
 <body>
@@ -16,11 +16,14 @@
     <pattern id="ply" width="40" height="3" patternUnits="userSpaceOnUse"><rect width="40" height="3" fill="#fff"/><path d="M0 3H40" stroke="#17222a" stroke-width=".5"/></pattern>
     <pattern id="timber" width="120" height="22" patternUnits="userSpaceOnUse"><rect width="120" height="22" fill="#f6efe3"/><path d="M0 7C30 4 50 10 80 7S110 5 120 7M0 17C25 15 55 20 85 16S112 15 120 17" fill="none" stroke="#8b6a3e" stroke-width=".7"/></pattern>
     <pattern id="conc" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#eef0ee"/><circle cx="3" cy="3" r=".8" fill="#17222a"/><circle cx="10" cy="9" r=".6" fill="#17222a"/><path d="M8 2l2.2 3.4H5.8z" fill="none" stroke="#17222a" stroke-width=".5"/><path d="M2 10l1.8 2.6H.2z" fill="none" stroke="#17222a" stroke-width=".5"/></pattern>
+    <pattern id="precast" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#e2e5e3"/><circle cx="2" cy="2" r=".8" fill="#17222a"/><circle cx="6" cy="6" r=".8" fill="#17222a"/></pattern>
+    <pattern id="tile" width="60" height="25" patternUnits="userSpaceOnUse"><rect width="60" height="25" fill="#fbfbf7"/><path d="M0 0V10M0 10H60" stroke="#17222a" stroke-width=".6"/></pattern>
+    <pattern id="board" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#f4f2ec"/><circle cx="3" cy="3" r=".6" fill="#8a8f8c"/></pattern>
     <pattern id="ind" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="#fbfcfc"/><path d="M0 0V9" stroke="#8e77b8" stroke-width="1.4"/></pattern>
   </defs>
 </svg>
 
-<div class="mock-note">Mock A · Drawing sheet · <b>Prices are dummy values for layout only. The 275 mm depth target is a mock input.</b> Floor ranges are the engineer pre-screen.</div>
+<div class="mock-note">Mock A · Drawing sheet · revision 2 · <b>Every price and dummy dimension is a placeholder for layout only. The 275 mm depth target is a mock input.</b> Floor ranges are the engineer pre-screen.</div>
 
 <header class="topbar">
   <div class="wordmark">
@@ -78,74 +81,74 @@
       <tbody>
         <tr>
           <td><b>L1</b></td><td class="r num">216</td>
-          <td><button class="pick" aria-haspopup="listbox"><span><span class="code">F-00</span>Baseline beam and block</span></button><span class="warn">Ceiling not included</span></td>
+          <td><button class="pick" aria-haspopup="listbox"><span><span class="code">F-00</span>Baseline beam and block</span></button><span class="note-ph" style="margin-top:5px">Ceiling: dummy line</span></td>
           <td class="r"><span class="rng"><b class="c">~240</b></span><span class="g g-ej">EJ</span></td>
           <td class="r"><span class="rng"><b class="c">52.5</b><span class="mid">mid</span><span class="lh">50–55</span></span><span class="g g-ej">EJ</span></td>
           <td class="r"><span class="rng"><b class="c">61.5</b><span class="mid">mid</span><span class="lh">58–65</span></span><span class="g g-ej">EJ</span></td>
           <td class="r"><span class="rng"><b class="c">125</b><span class="mid">mid</span><span class="lh">110–140</span></span><span class="g g-ej">EJ</span></td>
-          <td class="r ph"><span class="rng"><b class="c">6,100</b><span class="lh">5,200–7,250</span></span><span class="g g-ph">PH</span><small class="excl">excl. tile, ceiling</small></td>
+          <td class="r ph"><span class="rng"><b class="c">9,000</b><span class="lh">7,500–10,950</span></span><span class="g g-ph">PH</span></td>
           <td class="r"><span class="num">1.00</span><small class="excl">by definition</small></td>
           <td><span class="cks"><span class="ck ck-straddles only" title="Acoustic: straddles"><i></i><span>Acoustic: straddles</span></span><span class="ck ck-na only" title="Fire: not assessed"><i></i><span>Fire: not assessed</span></span><span class="ck ck-meets only" title="Depth: meets"><i></i><span>Depth: meets</span></span><span class="ck ck-meets only" title="Span: meets"><i></i><span>Span: meets</span></span><span class="ck ck-na only" title="Budget: not assessed"><i></i><span>Budget: not assessed</span></span></span></td>
         </tr>
         <tr class="sel">
           <td><b>L2–L5</b><small class="excl" style="text-align:left">4 levels</small></td><td class="r num">864</td>
-          <td><button class="pick" aria-haspopup="listbox"><span><span class="code">F-03B</span>Cassette with topping</span></button><span class="warn">Ceiling not included</span></td>
+          <td><button class="pick" aria-haspopup="listbox"><span><span class="code">F-03B</span>Cassette with topping</span></button><span class="note-ph" style="margin-top:5px">Ceiling: dummy line</span></td>
           <td class="r"><span class="rng"><b class="c">257.5</b><span class="mid">mid</span><span class="lh">245–270</span></span><span class="g g-ej">EJ</span></td>
           <td class="r"><span class="rng"><b class="c">54.5</b><span class="mid">mid</span><span class="lh">52–57</span></span><span class="g g-ej">EJ</span></td>
           <td class="r"><span class="rng"><b class="c">58.5</b><span class="mid">mid</span><span class="lh">55–62</span></span><span class="g g-ej">EJ</span></td>
           <td class="r"><span class="rng"><b class="c">62.5</b><span class="mid">mid</span><span class="lh">55–70</span></span><span class="g g-ej">EJ</span></td>
-          <td class="r ph"><span class="rng"><b class="c">4,100</b><span class="lh">3,300–5,200</span></span><span class="g g-ph">PH</span><small class="excl">excl. topping, ribs, ceiling</small></td>
+          <td class="r ph"><span class="rng"><b class="c">8,056</b><span class="lh">6,531–10,150</span></span><span class="g g-ph">PH</span></td>
           <td class="r"><span class="rng"><b class="c">1.225</b><span class="mid">mid</span><span class="lh">1.10–1.35</span></span><span class="g g-ej">EJ</span></td>
           <td><span class="cks"><span class="ck ck-meets only" title="Acoustic: meets"><i></i><span>Acoustic: meets</span></span><span class="ck ck-na only" title="Fire: not assessed"><i></i><span>Fire: not assessed</span></span><span class="ck ck-meets only" title="Depth: meets"><i></i><span>Depth: meets</span></span><span class="ck ck-meets only" title="Span: meets"><i></i><span>Span: meets</span></span><span class="ck ck-na only" title="Budget: not assessed"><i></i><span>Budget: not assessed</span></span></span></td>
         </tr>
       </tbody>
     </table>
     </div>
-    <p class="legend">EJ engineering judgement · PH placeholder · cost vs baseline is the engineer pre-screen ratio, never added into cost · cost KES/m² is dummy and excludes gap lines, so it is not comparable between options · “mid” = central is the midpoint of the range · ~ = single estimate. Source for floor ranges: Engineer pre-screen, draft (3 items to confirm: pack date, carbon scope A1–A3, cost basis).</p>
+    <p class="legend">EJ engineering judgement · PH placeholder · cost vs baseline is the engineer pre-screen ratio, never added into cost · cost KES/m² is complete but every rate is a dummy, so it says nothing yet · “mid” = central is the midpoint of the range · ~ = single estimate. Source for floor ranges: Engineer pre-screen, draft (3 items to confirm: pack date, carbon scope A1–A3, cost basis).</p>
   </section>
 
   <div class="sd-grid">
     <section class="drawing" aria-labelledby="t-sec">
-      <div class="panel-head"><h2 id="t-sec">Section · F-03B<span class="sub">L2–L5 (selected), along a rib</span></h2><span class="g g-ej">EJ</span></div>
-      <svg viewBox="0 0 730 352" role="img" aria-label="Section of F-03B drawn to scale: 18 mm plywood on a 150 mm rib, above a hatched indicative band of 77 to 102 mm unexplained depth">
-        <rect x="75" y="30" width="360" height="18" fill="url(#ply)" stroke="#17222a" stroke-width="1.2"/>
-        <rect x="75" y="48" width="360" height="150" fill="url(#timber)" stroke="#17222a" stroke-width="1.2"/>
-        <rect x="75" y="198" width="360" height="89.5" fill="url(#ind)" stroke="#5b3a93" stroke-width="1.2" stroke-dasharray="6 4"/>
-        <text x="255" y="248" text-anchor="middle" font-size="15" fill="#5b3a93" font-weight="600" letter-spacing="1.5">INDICATIVE</text>
+      <div class="panel-head"><h2 id="t-sec">Section · F-03B<span class="sub">L2–L5 (selected), along a rib · <span class="pen">violet dashed = dummy layer</span></span></h2><span class="g g-ej">EJ</span></div>
+      <svg viewBox="0 0 730 395" role="img" aria-label="Section of F-03B to scale: 50 mm dummy topping, 18 mm plywood, 150 mm rib, 15 mm dummy ceiling, then a hatched indicative band of 12 to 37 mm unexplained depth">
+        <rect x="75" y="30" width="360" height="50" fill="url(#conc)" stroke="#5b3a93" stroke-width="1.4" stroke-dasharray="6 4"/>
+        <rect x="75" y="80" width="360" height="18" fill="url(#ply)" stroke="#17222a" stroke-width="1.2"/>
+        <rect x="75" y="98" width="360" height="150" fill="url(#timber)" stroke="#17222a" stroke-width="1.2"/>
+        <rect x="75" y="248" width="360" height="15" fill="url(#board)" stroke="#5b3a93" stroke-width="1.4" stroke-dasharray="6 4"/>
+        <rect x="75" y="263" width="360" height="24.5" fill="url(#ind)" stroke="#5b3a93" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="255" y="282" text-anchor="middle" font-size="17" fill="#5b3a93" font-weight="600" letter-spacing="1.5" stroke="#fbfcfc" stroke-width="4" paint-order="stroke">INDICATIVE</text>
         <g stroke="#17222a" stroke-width="1">
-          <path d="M55 30V287.5"/>
-          <path d="M50 34L60 26M50 52L60 44M50 202L60 194M50 291.5L60 283.5"/>
-          <path d="M452 30V287.5"/>
-          <path d="M447 34L457 26M447 291.5L457 283.5"/>
-          <path d="M60 30H75M60 48H75M60 198H75M60 287.5H75M435 30H452M435 287.5H452" stroke-width=".5"/>
+          <path d="M55 30V287.5"/><path d="M50 34L60 26M50 84L60 76M50 102L60 94M50 252L60 244M50 267L60 259M50 291.5L60 283.5"/>
+          <path d="M452 30V287.5"/><path d="M447 34L457 26M447 291.5L457 283.5"/>
+          <path d="M60 30H75M60 80H75M60 98H75M60 248H75M60 263H75M60 287.5H75M435 30H452M435 287.5H452" stroke-width=".5"/>
         </g>
-        <g font-size="17" fill="#17222a" text-anchor="end">
-          <text x="48" y="44">18</text>
-          <text x="48" y="128">150</text>
-          <text x="48" y="248" fill="#5b3a93" font-style="italic">77–102</text>
+        <g font-size="17" text-anchor="end">
+          <text x="48" y="61" fill="#5b3a93" font-style="italic">50</text><text x="48" y="95" fill="#17222a">18</text>
+          <text x="48" y="179" fill="#17222a">150</text><text x="48" y="259" fill="#5b3a93" font-style="italic">15</text>
+          <text x="48" y="286" fill="#5b3a93" font-style="italic">12–37</text>
         </g>
-        <text transform="translate(470 159) rotate(-90)" text-anchor="middle" font-size="16" fill="#17222a">245–270 stated · drawn at 257.5 (mid)</text>
+        <text transform="translate(472 159) rotate(-90)" text-anchor="middle" font-size="17" fill="#17222a">245–270 stated · drawn at 257.5 (mid)</text>
         <g font-size="17" fill="#17222a">
-          <text x="490" y="45">18 plywood deck</text>
-          <text x="490" y="116">Rib 150 × 50, along rib</text>
-          <text x="490" y="137" fill="#4b5a60">spacing unknown, not drawn</text>
-          <text x="490" y="218" fill="#5b3a93" font-weight="600">Unexplained depth</text>
-          <text x="490" y="239" fill="#5b3a93">77–102 mm. May hold:</text>
-          <text x="490" y="260" fill="#5b3a93">topping, bottom skin?,</text>
-          <text x="490" y="281" fill="#5b3a93">ceiling. Order, position</text>
-          <text x="490" y="302" fill="#5b3a93">not drawn.</text>
+          <text x="490" y="61">Topping 50 <tspan fill="#5b3a93" font-style="italic">dummy</tspan></text>
+          <text x="490" y="95">18 plywood deck</text>
+          <text x="490" y="166">Rib 150 × 50, along rib</text><text x="490" y="186" fill="#5b3a93" font-style="italic">@ 400 dummy spacing</text>
+          <text x="490" y="259">Ceiling 15 <tspan fill="#5b3a93" font-style="italic">dummy</tspan></text>
+          <text x="490" y="286" fill="#5b3a93" font-weight="600">Unexplained depth 12–37 mm</text>
+          <text x="490" y="306" fill="#5b3a93">may hold a bottom skin or a</text>
+          <text x="490" y="326" fill="#5b3a93">deeper ceiling (to confirm).</text>
+          <text x="490" y="346" fill="#5b3a93">Order and position not drawn.</text>
         </g>
-        <g transform="translate(75 316)">
+        <g transform="translate(75 352)">
           <rect width="50" height="6" fill="#17222a"/><rect x="50" width="50" height="6" fill="#fff" stroke="#17222a"/><rect x="100" width="100" height="6" fill="#17222a"/>
-          <g font-size="15" fill="#17222a" text-anchor="middle"><text y="25">0</text><text x="50" y="25">50</text><text x="100" y="25">100</text><text x="200" y="25">200 mm</text></g>
+          <g font-size="18" fill="#17222a" text-anchor="middle"><text y="27">0</text><text x="50" y="27">50</text><text x="100" y="27">100</text><text x="200" y="27">200 mm</text></g>
         </g>
       </svg>
       <ul class="layers">
-        <li><span class="sw sw-none"></span><span>Topping</span><span class="gap">thickness unknown</span><span></span></li>
+        <li><span class="sw sw-conc dummy"></span><span>Topping <small class="pen">material and thickness to confirm with the engineer</small></span><span class="num pen">50</span><span class="g g-ph">PH</span></li>
         <li><span class="sw sw-ply"></span><span>18 mm plywood deck</span><span class="num">18</span><span class="g g-ej">EJ</span></li>
-        <li><span class="sw sw-timber"></span><span>Ribs 150 × 50</span><span class="num">150</span><span class="g g-ej">EJ</span></li>
-        <li><span class="sw sw-none"></span><span>Ceiling / soffit finish <small style="color:var(--ink-2)">fire-rated for REI 60? to confirm with the engineer</small></span><span class="gap">unknown</span><span></span></li>
-        <li><span class="sw sw-ind"></span><span style="color:var(--stamp)">Indicative band: depth not explained by known layers</span><span class="num" style="color:var(--stamp)">77–102</span><span></span></li>
+        <li><span class="sw sw-timber"></span><span>Ribs 150 × 50 <small class="pen">@ 400 spacing: dummy <span class="g g-ph">PH</span>, to confirm</small></span><span class="num">150</span><span class="g g-ej">EJ</span></li>
+        <li><span class="sw sw-board dummy"></span><span>Ceiling / soffit finish <small class="pen">fire-rated for REI 60? to confirm with the engineer</small></span><span class="num pen">15</span><span class="g g-ph">PH</span></li>
+        <li><span class="sw sw-ind"></span><span class="pen">Indicative band: depth the layers don't explain <small>depends on the dummy topping and ceiling</small></span><span class="num pen">12–37</span><span class="g g-ph">PH</span></li>
       </ul>
     </section>
 
@@ -242,7 +245,7 @@
 <footer class="titleblock">
   <div><span class="lbl">Tool</span><span class="tool">Bio-based Design Suite</span><span class="credit">Supported by Gatsby Africa</span></div>
   <div><span class="lbl">Project</span>Mid-rise apartment block (template copy)<br><span style="color:var(--ink-2)">Nairobi, KE · KES</span></div>
-  <div><span class="lbl">Sheet</span>System design · floors<br><span style="color:var(--ink-2)">28 Oct 2026</span></div>
+  <div><span class="lbl">Sheet</span>System design · floors<br><span style="color:var(--ink-2)">29 Oct 2026</span></div>
   <div class="val"><span class="lbl">Cost validated</span><b>0 %</b> <small>of 80 %</small></div>
   <div class="dis"><span class="lbl">Status</span><p class="disclaimer" role="note">Exploratory design and cost comparison only. Not structural design, specification or construction documents. Projects need project-specific engineering and approval.</p></div>
 </footer>

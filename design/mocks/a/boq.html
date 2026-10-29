@@ -6,7 +6,7 @@
 <title>Mock A · Schedule &amp; BOQ · Drawing sheet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow+Semi+Condensed:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="a.css">
 </head>
 <body>
@@ -17,11 +17,13 @@
     <pattern id="timber" width="120" height="22" patternUnits="userSpaceOnUse"><rect width="120" height="22" fill="#f6efe3"/><path d="M0 7C30 4 50 10 80 7S110 5 120 7M0 17C25 15 55 20 85 16S112 15 120 17" fill="none" stroke="#8b6a3e" stroke-width=".7"/></pattern>
     <pattern id="conc" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#eef0ee"/><circle cx="3" cy="3" r=".8" fill="#17222a"/><circle cx="10" cy="9" r=".6" fill="#17222a"/><path d="M8 2l2.2 3.4H5.8z" fill="none" stroke="#17222a" stroke-width=".5"/><path d="M2 10l1.8 2.6H.2z" fill="none" stroke="#17222a" stroke-width=".5"/></pattern>
     <pattern id="precast" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#e2e5e3"/><circle cx="2" cy="2" r=".8" fill="#17222a"/><circle cx="6" cy="6" r=".8" fill="#17222a"/></pattern>
+    <pattern id="tile" width="60" height="25" patternUnits="userSpaceOnUse"><rect width="60" height="25" fill="#fbfbf7"/><path d="M0 0V10M0 10H60" stroke="#17222a" stroke-width=".6"/></pattern>
+    <pattern id="board" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#f4f2ec"/><circle cx="3" cy="3" r=".6" fill="#8a8f8c"/></pattern>
     <pattern id="ind" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="#fbfcfc"/><path d="M0 0V9" stroke="#8e77b8" stroke-width="1.4"/></pattern>
   </defs>
 </svg>
 
-<div class="mock-note">Mock A · Drawing sheet · <b>Prices, lead times and "Nairobi local" are dummy values for layout only.</b> Floor ranges and layers are the engineer pre-screen.</div>
+<div class="mock-note">Mock A · Drawing sheet · revision 2 · <b>Every price, lead time and dummy dimension is a placeholder for layout only.</b> Floor depths, acoustics and carbon are the engineer pre-screen.</div>
 
 <header class="topbar">
   <div class="wordmark">
@@ -52,87 +54,95 @@
     <div class="stamp" role="note" aria-label="Placeholder data, internal. 0 % of cost validated; the mark stays until 80 %."><div><b>PLACEHOLDER DATA – INTERNAL</b><span>0 % of cost validated · stays until 80 %</span></div></div>
   </div>
 
-  <h2 style="margin-top:14px">Schedule of floor types<span class="sub">drawn at the same scale, at central depth</span></h2>
+  <h2 style="margin-top:14px">Schedule of floor types<span class="sub">same scale · <span class="pen">violet dashed = dummy layer</span> · hatched band = depth the layers don't explain</span></h2>
   <div class="boq-sections" style="margin-top:6px">
     <section class="drawing" aria-labelledby="s-f00">
       <div class="panel-head"><h2 id="s-f00">F-00 · Baseline beam and block<span class="sub">L1 · 216 m² · along a beam</span></h2><span class="g g-ej">EJ</span></div>
-      <svg viewBox="0 0 730 372" role="img" aria-label="Section of F-00 to scale: 50 mm topping on 150 mm beam and block, above a hatched indicative band of about 40 mm">
-        <rect x="75" y="30" width="360" height="50" fill="url(#conc)" stroke="#17222a" stroke-width="1.2"/>
-        <rect x="75" y="80" width="360" height="150" fill="url(#precast)" stroke="#17222a" stroke-width="1.2"/>
-        <rect x="75" y="230" width="360" height="40" fill="url(#ind)" stroke="#5b3a93" stroke-width="1.2" stroke-dasharray="6 4"/>
-        <text x="255" y="256" text-anchor="middle" font-size="15" fill="#5b3a93" font-weight="600" letter-spacing="1.5">INDICATIVE</text>
+      <svg viewBox="0 0 730 395" role="img" aria-label="Section of F-00 to scale: 25 mm dummy tile and bedding, 50 mm topping, 150 mm beam and block, 15 mm dummy ceiling; the layers fill the stated 240 mm">
+        <rect x="75" y="30" width="360" height="25" fill="url(#tile)" stroke="#5b3a93" stroke-width="1.4" stroke-dasharray="6 4"/>
+        <rect x="75" y="55" width="360" height="50" fill="url(#conc)" stroke="#17222a" stroke-width="1.2"/>
+        <rect x="75" y="105" width="360" height="150" fill="url(#precast)" stroke="#17222a" stroke-width="1.2"/>
+        <rect x="75" y="255" width="360" height="15" fill="url(#board)" stroke="#5b3a93" stroke-width="1.4" stroke-dasharray="6 4"/>
         <g stroke="#17222a" stroke-width="1">
-          <path d="M55 30V270"/><path d="M50 34L60 26M50 84L60 76M50 234L60 226M50 274L60 266"/>
+          <path d="M55 30V270"/><path d="M50 34L60 26M50 59L60 51M50 109L60 101M50 259L60 251M50 274L60 266"/>
           <path d="M452 30V270"/><path d="M447 34L457 26M447 274L457 266"/>
-          <path d="M60 30H75M60 80H75M60 230H75M60 270H75M435 30H452M435 270H452" stroke-width=".5"/>
+          <path d="M60 30H75M60 55H75M60 105H75M60 255H75M60 270H75M435 30H452M435 270H452" stroke-width=".5"/>
         </g>
-        <g font-size="17" fill="#17222a" text-anchor="end">
-          <text x="48" y="61">50</text><text x="48" y="161">150</text><text x="48" y="256" fill="#5b3a93" font-style="italic">~40</text>
+        <g font-size="17" text-anchor="end">
+          <text x="48" y="48" fill="#5b3a93" font-style="italic">25</text><text x="48" y="86" fill="#17222a">50</text>
+          <text x="48" y="186" fill="#17222a">150</text><text x="48" y="268" fill="#5b3a93" font-style="italic">15</text>
         </g>
-        <text transform="translate(470 150) rotate(-90)" text-anchor="middle" font-size="16" fill="#17222a">~240 stated (single estimate)</text>
+        <text transform="translate(472 150) rotate(-90)" text-anchor="middle" font-size="17" fill="#17222a">~240 stated (single estimate)</text>
         <g font-size="17" fill="#17222a">
-          <text x="490" y="61">Topping 50</text>
-          <text x="490" y="152">Beam and block 150,</text><text x="490" y="172" fill="#4b5a60">along a beam</text>
-          <text x="490" y="242" fill="#5b3a93" font-weight="600">Unexplained depth</text>
-          <text x="490" y="263" fill="#5b3a93">~40 mm. May hold: tile</text>
-          <text x="490" y="284" fill="#5b3a93">and bedding, ceiling.</text>
-          <text x="490" y="305" fill="#5b3a93">Order, position not drawn.</text>
+          <text x="490" y="48">Tile and bedding 25 <tspan fill="#5b3a93" font-style="italic">dummy</tspan></text>
+          <text x="490" y="86">Topping 50</text>
+          <text x="490" y="176">Beam and block 150,</text><text x="490" y="196" fill="#4b5a60">along a beam</text>
+          <text x="490" y="268">Ceiling 15 <tspan fill="#5b3a93" font-style="italic">dummy</tspan></text>
+          <text x="490" y="306" fill="#5b3a93">No unexplained depth: with the</text>
+          <text x="490" y="326" fill="#5b3a93">dummy tile and ceiling, the</text>
+          <text x="490" y="346" fill="#5b3a93">layers fill the ~240 stated.</text>
         </g>
-        <g transform="translate(75 330)">
+        <g transform="translate(75 352)">
           <rect width="50" height="6" fill="#17222a"/><rect x="50" width="50" height="6" fill="#fff" stroke="#17222a"/><rect x="100" width="100" height="6" fill="#17222a"/>
-          <g font-size="15" fill="#17222a" text-anchor="middle"><text y="25">0</text><text x="50" y="25">50</text><text x="100" y="25">100</text><text x="200" y="25">200 mm</text></g>
+          <g font-size="18" fill="#17222a" text-anchor="middle"><text y="27">0</text><text x="50" y="27">50</text><text x="100" y="27">100</text><text x="200" y="27">200 mm</text></g>
         </g>
       </svg>
       <ul class="layers">
-        <li><span class="sw sw-none"></span><span>Floor tile and bedding</span><span class="gap">thickness unknown</span><span></span></li>
+        <li><span class="sw sw-tile dummy"></span><span>Floor tile and bedding <small class="pen">thickness to confirm with the engineer</small></span><span class="num pen">25</span><span class="g g-ph">PH</span></li>
         <li><span class="sw sw-conc"></span><span>Topping</span><span class="num">50</span><span class="g g-ej">EJ</span></li>
         <li><span class="sw sw-precast"></span><span>Beam and block</span><span class="num">150</span><span class="g g-ej">EJ</span></li>
-        <li><span class="sw sw-none"></span><span>Ceiling / soffit finish</span><span class="gap">unknown</span><span></span></li>
+        <li><span class="sw sw-board dummy"></span><span>Ceiling / soffit finish <small class="pen">build-up to confirm with the engineer</small></span><span class="num pen">15</span><span class="g g-ph">PH</span></li>
       </ul>
     </section>
 
     <section class="drawing" aria-labelledby="s-f03b">
       <div class="panel-head"><h2 id="s-f03b">F-03B · Cassette with topping<span class="sub">L2–L5 · 864 m² · along a rib</span></h2><span class="g g-ej">EJ</span></div>
-      <svg viewBox="0 0 730 372" role="img" aria-label="Section of F-03B to scale: 18 mm plywood on a 150 mm rib, above a hatched indicative band of 77 to 102 mm">
-        <rect x="75" y="30" width="360" height="18" fill="url(#ply)" stroke="#17222a" stroke-width="1.2"/>
-        <rect x="75" y="48" width="360" height="150" fill="url(#timber)" stroke="#17222a" stroke-width="1.2"/>
-        <rect x="75" y="198" width="360" height="89.5" fill="url(#ind)" stroke="#5b3a93" stroke-width="1.2" stroke-dasharray="6 4"/>
-        <text x="255" y="248" text-anchor="middle" font-size="15" fill="#5b3a93" font-weight="600" letter-spacing="1.5">INDICATIVE</text>
+      <svg viewBox="0 0 730 395" role="img" aria-label="Section of F-03B to scale: 50 mm dummy topping, 18 mm plywood, 150 mm rib, 15 mm dummy ceiling, then a hatched indicative band of 12 to 37 mm unexplained depth">
+        <rect x="75" y="30" width="360" height="50" fill="url(#conc)" stroke="#5b3a93" stroke-width="1.4" stroke-dasharray="6 4"/>
+        <rect x="75" y="80" width="360" height="18" fill="url(#ply)" stroke="#17222a" stroke-width="1.2"/>
+        <rect x="75" y="98" width="360" height="150" fill="url(#timber)" stroke="#17222a" stroke-width="1.2"/>
+        <rect x="75" y="248" width="360" height="15" fill="url(#board)" stroke="#5b3a93" stroke-width="1.4" stroke-dasharray="6 4"/>
+        <rect x="75" y="263" width="360" height="24.5" fill="url(#ind)" stroke="#5b3a93" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="255" y="282" text-anchor="middle" font-size="17" fill="#5b3a93" font-weight="600" letter-spacing="1.5" stroke="#fbfcfc" stroke-width="4" paint-order="stroke">INDICATIVE</text>
         <g stroke="#17222a" stroke-width="1">
-          <path d="M55 30V287.5"/><path d="M50 34L60 26M50 52L60 44M50 202L60 194M50 291.5L60 283.5"/>
+          <path d="M55 30V287.5"/><path d="M50 34L60 26M50 84L60 76M50 102L60 94M50 252L60 244M50 267L60 259M50 291.5L60 283.5"/>
           <path d="M452 30V287.5"/><path d="M447 34L457 26M447 291.5L457 283.5"/>
-          <path d="M60 30H75M60 48H75M60 198H75M60 287.5H75M435 30H452M435 287.5H452" stroke-width=".5"/>
+          <path d="M60 30H75M60 80H75M60 98H75M60 248H75M60 263H75M60 287.5H75M435 30H452M435 287.5H452" stroke-width=".5"/>
         </g>
-        <g font-size="17" fill="#17222a" text-anchor="end">
-          <text x="48" y="45">18</text><text x="48" y="129">150</text><text x="48" y="249" fill="#5b3a93" font-style="italic">77–102</text>
+        <g font-size="17" text-anchor="end">
+          <text x="48" y="61" fill="#5b3a93" font-style="italic">50</text><text x="48" y="95" fill="#17222a">18</text>
+          <text x="48" y="179" fill="#17222a">150</text><text x="48" y="259" fill="#5b3a93" font-style="italic">15</text>
+          <text x="48" y="286" fill="#5b3a93" font-style="italic">12–37</text>
         </g>
-        <text transform="translate(470 159) rotate(-90)" text-anchor="middle" font-size="16" fill="#17222a">245–270 stated · drawn at 257.5 (mid)</text>
+        <text transform="translate(472 159) rotate(-90)" text-anchor="middle" font-size="17" fill="#17222a">245–270 stated · drawn at 257.5 (mid)</text>
         <g font-size="17" fill="#17222a">
-          <text x="490" y="45">18 plywood deck</text>
-          <text x="490" y="116">Rib 150 × 50, along rib</text><text x="490" y="137" fill="#4b5a60">spacing unknown, not drawn</text>
-          <text x="490" y="218" fill="#5b3a93" font-weight="600">Unexplained depth</text>
-          <text x="490" y="239" fill="#5b3a93">77–102 mm. May hold:</text>
-          <text x="490" y="260" fill="#5b3a93">topping, bottom skin?,</text>
-          <text x="490" y="281" fill="#5b3a93">ceiling. Order, position</text>
-          <text x="490" y="302" fill="#5b3a93">not drawn.</text>
+          <text x="490" y="61">Topping 50 <tspan fill="#5b3a93" font-style="italic">dummy</tspan></text>
+          <text x="490" y="95">18 plywood deck</text>
+          <text x="490" y="166">Rib 150 × 50, along rib</text><text x="490" y="186" fill="#5b3a93" font-style="italic">@ 400 dummy spacing</text>
+          <text x="490" y="259">Ceiling 15 <tspan fill="#5b3a93" font-style="italic">dummy</tspan></text>
+          <text x="490" y="286" fill="#5b3a93" font-weight="600">Unexplained depth 12–37 mm</text>
+          <text x="490" y="306" fill="#5b3a93">may hold a bottom skin or a</text>
+          <text x="490" y="326" fill="#5b3a93">deeper ceiling (to confirm).</text>
+          <text x="490" y="346" fill="#5b3a93">Order and position not drawn.</text>
         </g>
-        <g transform="translate(75 330)">
+        <g transform="translate(75 352)">
           <rect width="50" height="6" fill="#17222a"/><rect x="50" width="50" height="6" fill="#fff" stroke="#17222a"/><rect x="100" width="100" height="6" fill="#17222a"/>
-          <g font-size="15" fill="#17222a" text-anchor="middle"><text y="25">0</text><text x="50" y="25">50</text><text x="100" y="25">100</text><text x="200" y="25">200 mm</text></g>
+          <g font-size="18" fill="#17222a" text-anchor="middle"><text y="27">0</text><text x="50" y="27">50</text><text x="100" y="27">100</text><text x="200" y="27">200 mm</text></g>
         </g>
       </svg>
       <ul class="layers">
-        <li><span class="sw sw-none"></span><span>Topping</span><span class="gap">thickness unknown</span><span></span></li>
+        <li><span class="sw sw-conc dummy"></span><span>Topping <small class="pen">material and thickness to confirm with the engineer</small></span><span class="num pen">50</span><span class="g g-ph">PH</span></li>
         <li><span class="sw sw-ply"></span><span>18 mm plywood deck</span><span class="num">18</span><span class="g g-ej">EJ</span></li>
-        <li><span class="sw sw-timber"></span><span>Ribs 150 × 50</span><span class="num">150</span><span class="g g-ej">EJ</span></li>
-        <li><span class="sw sw-none"></span><span>Ceiling / soffit finish <small style="color:var(--ink-2)">fire-rated for REI 60? to confirm with the engineer</small></span><span class="gap">unknown</span><span></span></li>
+        <li><span class="sw sw-timber"></span><span>Ribs 150 × 50 <small class="pen">@ 400 spacing: dummy <span class="g g-ph">PH</span>, to confirm</small></span><span class="num">150</span><span class="g g-ej">EJ</span></li>
+        <li><span class="sw sw-board dummy"></span><span>Ceiling / soffit finish <small class="pen">fire-rated for REI 60? to confirm with the engineer</small></span><span class="num pen">15</span><span class="g g-ph">PH</span></li>
+        <li><span class="sw sw-ind"></span><span class="pen">Indicative band: depth the layers don't explain <small>depends on the dummy topping and ceiling</small></span><span class="num pen">12–37</span><span class="g g-ph">PH</span></li>
       </ul>
     </section>
   </div>
 
   <div class="boq-grid">
     <section aria-labelledby="t-boq">
-      <h2 id="t-boq">Bill of quantities · floors<span class="sub">central figure first, low–high below · amounts in KES</span></h2>
+      <h2 id="t-boq">Bill of quantities · floors<span class="sub">central figure first, low–high below · amounts in KES · <span class="pen">violet italic = pencilled placeholder</span></span></h2>
       <div class="tbl-wrap">
       <table class="boq">
         <thead><tr>
@@ -140,18 +150,20 @@
           <th>Supplier · route</th><th class="r">Lead time</th><th class="r">Carbon</th><th>Grade</th>
         </tr></thead>
         <tbody>
-          <tr class="grp"><td colspan="10">L1 · F-00 Baseline beam and block<span class="meta">216 m² · cost vs baseline 1.00 by definition (ratio, not used in totals)</span></td></tr>
+          <tr class="grp"><td colspan="10">L1 · F-00 Baseline beam and block<span class="meta">216 m² · cost vs baseline 1.00 by definition</span></td></tr>
           <tr>
-            <td class="item">A</td><td class="desc">Floor tile and bedding<small>product spec incomplete: thickness unknown</small></td>
-            <td class="r num">216</td><td>m²</td><td class="r"><span class="gap">no rate</span></td><td class="r"><span class="gap">gap</span></td>
-            <td class="route">Not resolved</td><td class="r">—</td><td class="r">—</td><td>—</td>
+            <td class="item">A</td><td class="desc">Floor tile and bedding, <span class="pen">25 mm dummy</span><small>no supplier in library: dummy trade rate</small></td>
+            <td class="r num">216</td><td>m²</td>
+            <td class="r ph"><span class="rng stack"><b class="c">2,200</b><span class="lh">1,800–2,800</span></span></td>
+            <td class="r ph"><span class="rng stack"><b class="c">475,200</b><span class="lh">388,800–604,800</span></span></td>
+            <td class="route">Local trade rate<small>supply and lay</small></td><td class="r">—</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr>
             <td class="item">B</td><td class="desc">Topping, 50 mm</td>
             <td class="r num">10.8</td><td>m³</td>
             <td class="r ph"><span class="rng stack"><b class="c">18,000</b><span class="lh">16,000–21,000</span></span></td>
             <td class="r ph"><span class="rng stack"><b class="c">194,400</b><span class="lh">172,800–226,800</span></span></td>
-            <td class="route">Local ready-mix supplier<small>Nairobi local (mock route)</small><span class="mode static">Regional</span></td>
+            <td class="route">Supplier KE (Kenya)<small>Nairobi local</small><span class="mode static">Regional</span></td>
             <td class="r ph num">0–1 wk</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr>
@@ -159,13 +171,15 @@
             <td class="r num">216</td><td>m²</td>
             <td class="r ph"><span class="rng stack"><b class="c">4,400</b><span class="lh">3,800–5,200</span></span></td>
             <td class="r ph"><span class="rng stack"><b class="c">950,400</b><span class="lh">820,800–1,123,200</span></span></td>
-            <td class="route">Local precast supplier<small>Nairobi local (mock route)</small><span class="mode static">Regional</span></td>
+            <td class="route">Supplier KE (Kenya)<small>Nairobi local</small><span class="mode static">Regional</span></td>
             <td class="r ph num">1–2 wk</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr>
-            <td class="item">D</td><td class="desc">Ceiling / soffit finish<small>build-up unknown: to confirm with the engineer</small></td>
-            <td class="r num">216</td><td>m²</td><td class="r"><span class="gap">no rate</span></td><td class="r"><span class="warn">Ceiling not included</span></td>
-            <td class="route">Not resolved</td><td class="r">—</td><td class="r">—</td><td>—</td>
+            <td class="item">D</td><td class="desc">Ceiling / soffit finish, <span class="pen">15 mm dummy</span><small>build-up to confirm with the engineer</small></td>
+            <td class="r num">216</td><td>m²</td>
+            <td class="r ph"><span class="rng stack"><b class="c">700</b><span class="lh">500–900</span></span></td>
+            <td class="r ph"><span class="rng stack"><b class="c">151,200</b><span class="lh">108,000–194,400</span></span></td>
+            <td class="route">Local trade rate<small>no supplier in library</small></td><td class="r">—</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr>
             <td class="item">E</td><td class="desc">Installation, labour and plant</td>
@@ -175,42 +189,45 @@
             <td class="route">—</td><td class="r">—</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr class="sub">
-            <td></td><td><b>L1 subtotal</b><small style="display:block;color:var(--ink-2)">excludes 2 lines · ceiling not included</small></td><td></td><td></td><td></td>
-            <td class="r ph"><span class="rng stack"><b class="c">1,317,600</b><span class="lh">1,123,200–1,566,000</span></span> <span class="g g-ph">PH</span></td>
+            <td></td><td><b>L1 subtotal</b><span class="note">complete · <span class="pen">9,000 (7,500–10,950) KES/m²</span></span></td><td></td><td></td><td></td>
+            <td class="r ph"><span class="rng stack"><b class="c">1,944,000</b><span class="lh">1,620,000–2,365,200</span></span> <span class="g g-ph">PH</span></td>
             <td class="route">basis unknown</td><td></td>
             <td class="r"><span class="rng stack"><b class="c">27.0 t</b><span class="lh">23.8–30.2 · mid</span></span> <span class="g g-ej">EJ</span></td><td><span class="g g-ph">PH</span></td>
           </tr>
 
           <tr class="grp"><td colspan="10">L2–L5 · F-03B Cassette with topping<span class="meta">864 m² · cost vs baseline 1.225 mid, 1.10–1.35 <span class="g g-ej">EJ</span> (ratio, not used in totals)</span></td></tr>
           <tr>
-            <td class="item">F</td><td class="desc">Topping<small>material and thickness to confirm with the engineer</small></td>
-            <td class="r"><span class="gap">gap</span></td><td>m³</td>
-            <td class="r"><span class="gap">no rate</span></td>
-            <td class="r"><span class="gap">gap</span></td>
-            <td class="route">Not resolved<small>material unknown</small></td>
-            <td class="r">—</td><td class="r">—</td><td>—</td>
+            <td class="item">F</td><td class="desc">Topping, <span class="pen">50 mm dummy</span><small>material and thickness to confirm with the engineer</small></td>
+            <td class="r ph num">43.2</td><td>m³</td>
+            <td class="r ph"><span class="rng stack"><b class="c">18,000</b><span class="lh">16,000–21,000</span></span></td>
+            <td class="r ph"><span class="rng stack"><b class="c">777,600</b><span class="lh">691,200–907,200</span></span></td>
+            <td class="route">Supplier KE (Kenya)<small>Nairobi local</small><span class="mode static">Regional</span></td>
+            <td class="r ph num">0–1 wk</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr>
             <td class="item">G</td><td class="desc">18 mm plywood deck</td>
             <td class="r num">864</td><td>m²</td>
             <td class="r ph"><span class="rng stack"><b class="c">2,900</b><span class="lh">2,400–3,600</span></span></td>
             <td class="r ph"><span class="rng stack"><b class="c">2,505,600</b><span class="lh">2,073,600–3,110,400</span></span></td>
-            <td class="route">Supplier A (EU, plywood)<small>EU → Mombasa → Nairobi</small><span class="mode static">Imported · no regional option in library</span></td>
+            <td class="route">Supplier EU (Austria)<small>EU → Mombasa → Nairobi · alt. Supplier TZ, Mafinga → Nairobi</small>
+              <span class="mode" role="group" aria-label="Route"><button aria-pressed="true">Imported</button><button aria-pressed="false">Regional</button></span></td>
             <td class="r ph num">10–14 wk</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr>
-            <td class="item">H</td><td class="desc">Ribs 150 × 50, kiln-dried pine<small>rib spacing and strength class to confirm with the engineer</small></td>
-            <td class="r"><span class="gap">gap</span></td><td>m³</td>
+            <td class="item">H</td><td class="desc">Ribs 150 × 50, kiln-dried graded pine, <span class="pen">@ 400 dummy spacing</span><small>spacing and strength class to confirm with the engineer</small></td>
+            <td class="r ph num">16.2</td><td>m³</td>
             <td class="r ph"><span class="rng stack"><b class="c">67,000</b><span class="lh">55,000–80,000</span></span></td>
-            <td class="r"><span class="gap">gap</span></td>
-            <td class="route">Regional supplier B (UG, KD pine)<small>Jinja → Nairobi</small>
-              <span class="mode" role="group" aria-label="Route"><button aria-pressed="true">Regional</button><button aria-pressed="false">Imported</button></span></td>
+            <td class="r ph"><span class="rng stack"><b class="c">1,085,400</b><span class="lh">891,000–1,296,000</span></span></td>
+            <td class="route">Supplier UG (Uganda)<small>Jinja → Nairobi · alt. Supplier ZA, Durban → Mombasa → Nairobi</small>
+              <span class="mode" role="group" aria-label="Route"><button aria-pressed="false">Imported</button><button aria-pressed="true">Regional</button></span></td>
             <td class="r ph num">3–6 wk</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr>
-            <td class="item">I</td><td class="desc">Ceiling / soffit finish<small>fire-rated for REI 60? to confirm with the engineer</small></td>
-            <td class="r num">864</td><td>m²</td><td class="r"><span class="gap">no rate</span></td><td class="r"><span class="warn">Ceiling not included</span></td>
-            <td class="route">Not resolved</td><td class="r">—</td><td class="r">—</td><td>—</td>
+            <td class="item">I</td><td class="desc">Ceiling / soffit finish, <span class="pen">15 mm dummy</span><small>fire-rated for REI 60? to confirm with the engineer</small></td>
+            <td class="r num">864</td><td>m²</td>
+            <td class="r ph"><span class="rng stack"><b class="c">1,800</b><span class="lh">1,400–2,400</span></span></td>
+            <td class="r ph"><span class="rng stack"><b class="c">1,555,200</b><span class="lh">1,209,600–2,073,600</span></span></td>
+            <td class="route">Local trade rate<small>no supplier in library</small></td><td class="r">—</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr>
             <td class="item">J</td><td class="desc">Installation, labour and plant</td>
@@ -220,26 +237,36 @@
             <td class="route">—</td><td class="r">—</td><td class="r">—</td><td><span class="g g-ph">PH</span></td>
           </tr>
           <tr class="sub">
-            <td></td><td><b>L2–L5 subtotal</b><small style="display:block;color:var(--ink-2)">excludes 3 lines · ceiling not included</small></td><td></td><td></td><td></td>
-            <td class="r ph"><span class="rng stack"><b class="c">3,542,400</b><span class="lh">2,851,200–4,492,800</span></span> <span class="g g-ph">PH</span></td>
+            <td></td><td><b>L2–L5 subtotal</b><span class="note">complete · <span class="pen">8,056 (6,531–10,150) KES/m²</span></span></td><td></td><td></td><td></td>
+            <td class="r ph"><span class="rng stack"><b class="c">6,960,600</b><span class="lh">5,643,000–8,769,600</span></span> <span class="g g-ph">PH</span></td>
             <td class="route">basis unknown</td><td></td>
             <td class="r"><span class="rng stack"><b class="c">54.0 t</b><span class="lh">47.5–60.5 · mid</span></span> <span class="g g-ej">EJ</span></td><td><span class="g g-ph">PH</span></td>
           </tr>
         </tbody>
       </table>
       </div>
-      <p class="legend">Carbon A1–A3 comes from the engineer pre-screen per m² of assembly (scope to confirm), so it is given per group, not per line. Line grade = the weakest of quantity and rate; "—" where the line is a gap. Every rate is dummy, basis unknown (first-of-kind or repeat not stated). Lead times exclude transit.</p>
+      <p class="legend">Quantities in violet rest on a dummy dimension (topping thickness, rib spacing). Carbon A1–A3 is the engineer pre-screen per m² of assembly (scope to confirm), so it is given per group. Line grade = the weakest of quantity and rate. No wastage applied. Lead times exclude transit.</p>
     </section>
 
     <aside class="totals" aria-label="Floor totals">
       <div>
         <span class="lbl">Floors total · excl. VAT</span>
-        <div class="big ph" style="margin-top:6px">4.86 M<small>KES</small> <span class="g g-ph">PH</span></div>
-        <div class="lh">3.97–6.06 M · basis unknown</div>
+        <div class="big ph" style="margin-top:6px">8.90 M<small>KES</small> <span class="g g-ph">PH</span></div>
+        <div class="lh pen">7.26–11.13 M · basis unknown</div>
       </div>
       <div class="pair">
-        <div><span class="lbl">Per m² floor</span><div class="num ph" style="font-size:17px;margin-top:4px">4,500 <span class="g g-ph">PH</span></div><div class="lh">3,680–5,610 KES</div></div>
-        <div><span class="lbl">Import share</span><div class="num ph" style="font-size:17px;margin-top:4px">52 % <span class="g g-ph">PH</span></div><div class="lh">of central cost</div></div>
+        <div><span class="lbl">Per m² floor</span><div class="num ph" style="font-size:17px;margin-top:4px">8,245 <span class="g g-ph">PH</span></div><div class="lh pen">6,725–10,310 KES</div></div>
+        <div><span class="lbl">Import share</span><div class="num ph" style="font-size:17px;margin-top:4px">28 % <span class="g g-ph">PH</span></div><div class="lh">of central cost</div></div>
+      </div>
+      <div>
+        <span class="lbl">Like for like · KES per m² of floor</span>
+        <dl class="cmp">
+          <dt><b>F-00</b> baseline</dt><dd class="ph"><b>9,000</b> <span>7,500–10,950</span> <span class="g g-ph">PH</span></dd>
+          <dt><b>F-03B</b> cassette</dt><dd class="ph"><b>8,056</b> <span>6,531–10,150</span> <span class="g g-ph">PH</span></dd>
+          <dt>F-03B ÷ F-00</dt><dd class="ph"><b>0.90×</b> <span>0.60–1.35</span> <span class="g g-ph">PH</span></dd>
+          <dt>Pre-screen ratio</dt><dd><b>1.225×</b> <span>1.10–1.35</span> <span class="g g-ej">EJ</span></dd>
+        </dl>
+        <p class="cmp-note">The bottom-up ratio uses dummy rates, so it says nothing yet. The pre-screen ratio is the only evidence.</p>
       </div>
       <div>
         <span class="lbl">Carbon A1–A3 · beside cost, never in it</span>
@@ -247,8 +274,8 @@
         <div class="lh">71.3–90.7 t · 75 (66–84) kg/m² · central = midpoint</div>
       </div>
       <div class="warns">
-        <span class="warn">Ceiling not included (L1–L5)</span>
-        <span class="warn">Excludes 5 lines with unknown quantities or prices</span>
+        <span class="note-ph">Complete: no lines excluded. Every rate and 5 dimensions are dummies.</span>
+        <span class="note-ph">Ceilings are dummy lines: fire-rated for REI 60? to confirm.</span>
       </div>
       <div>
         <span class="lbl">Cost validated</span>
@@ -258,12 +285,12 @@
       <div>
         <span class="lbl">Biggest unvalidated numbers</span>
         <ol class="calls">
-          <li><span>Plywood deck rate, Supplier A (EU) <span class="g g-ph">PH</span></span><span class="pc ph">52 %</span></li>
-          <li><span>Installation rate, F-03B <span class="g g-ph">PH</span></span><span class="pc ph">21 %</span></li>
-          <li><span>Beam and block rate, local precast <span class="g g-ph">PH</span></span><span class="pc ph">20 %</span></li>
+          <li><span>Plywood deck rate, Supplier EU <span class="g g-ph">PH</span></span><span class="pc ph">28 %</span></li>
+          <li><span>Ceiling rate, F-03B <span class="g g-ph">PH</span></span><span class="pc ph">17 %</span></li>
+          <li><span>Rib rate, Supplier UG <span class="g g-ph">PH</span></span><span class="pc ph">12 %</span></li>
         </ol>
       </div>
-      <div style="font-size:12px;color:var(--ink-2)">Low and high are plausible bounds, not a statistical interval.</div>
+      <div style="font-size:12.5px;color:var(--ink-2)">Low and high are plausible bounds, not a statistical interval.</div>
     </aside>
   </div>
 </main>
@@ -271,7 +298,7 @@
 <footer class="titleblock">
   <div><span class="lbl">Tool</span><span class="tool">Bio-based Design Suite</span><span class="credit">Supported by Gatsby Africa</span></div>
   <div><span class="lbl">Project</span>Mid-rise apartment block (template copy)<br><span style="color:var(--ink-2)">Nairobi, KE · KES</span></div>
-  <div><span class="lbl">Sheet</span>Schedule &amp; BOQ · floors<br><span style="color:var(--ink-2)">28 Oct 2026</span></div>
+  <div><span class="lbl">Sheet</span>Schedule &amp; BOQ · floors<br><span style="color:var(--ink-2)">29 Oct 2026</span></div>
   <div class="val"><span class="lbl">Cost validated</span><b>0 %</b> <small>of 80 %</small></div>
   <div class="dis"><span class="lbl">Status</span><p class="disclaimer" role="note">Exploratory design and cost comparison only. Not structural design, specification or construction documents. Projects need project-specific engineering and approval.</p></div>
 </footer>
