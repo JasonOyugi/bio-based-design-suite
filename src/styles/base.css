@@ -1,6 +1,22 @@
-/* Temporary neutral styles until DESIGN.md tokens exist (Phase 2) */
+/* Base styles for direction A, "Drawing sheet". Every value comes from tokens.css (generated from DESIGN.md). */
+@import './tokens.css';
+
 * { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, sans-serif; background: #fff; color: #1a1a1a; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--color-ground);
+  color: var(--color-primary);
+  font-family: var(--type-body-family);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line);
+}
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
 .app { min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
-.app-header, .app-footer { padding: 8px 16px; }
-.disclaimer { margin: 0; font-size: 0.8125rem; }
+.app-header, .app-footer { padding: var(--space-sm) var(--space-lg); background: var(--color-neutral); }
+.app-header { border-bottom: 2px solid var(--color-primary); }
+.app-footer { border-top: 2px solid var(--color-primary); }
+.disclaimer { margin: 0; font-size: var(--type-disclaimer-size); font-weight: var(--type-disclaimer-weight); line-height: var(--type-disclaimer-line); }
