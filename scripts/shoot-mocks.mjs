@@ -18,23 +18,21 @@ const PAGES = pick(process.argv[3], ['system-design', 'boq']);
 mkdirSync(OUT, { recursive: true });
 
 const report = [];
-for (const [i, width] of WIDTHS.entries()) {
-  const first = pathToFileURL(join(MOCKS, dirs[0], `${PAGES[0]}.html`)).href;
-  const b = await open(first, { width, height: 900, port: 9230 + i, profile: join(tmpdir(), `bbds-shoot-${width}`) });
-  try {
-    const errors = [];
-    b.on((m) => {
-      if (m.method === 'Runtime.exceptionThrown') errors.push(m.params.exceptionDetails.exception?.description ?? 'exception');
-      if (m.method === 'Runtime.consoleAPICalled' && m.params.type === 'error') errors.push(m.params.args.map((a) => a.value ?? a.description).join(' '));
-      if (m.method === 'Log.entryAdded' && m.params.entry.level === 'error') errors.push(m.params.entry.text);
-    });
-    await b.send('Log.enable');
+const b = await open('about:blank', { width: WIDTHS[0], height: 900, port: 9230, profile: join(tmpdir(), 'bbds-shoot') });
+try {
+  const errors = [];
+  b.on((m) => {
+    if (m.method === 'Runtime.exceptionThrown') errors.push(m.params.exceptionDetails.exception?.description ?? 'exception');
+    if (m.method === 'Runtime.consoleAPICalled' && m.params.type === 'error') errors.push(m.params.args.map((a) => a.value ?? a.description).join(' '));
+    if (m.method === 'Log.entryAdded' && m.params.entry.level === 'error') errors.push(m.params.entry.text);
+  });
+  await b.send('Log.enable');
+  for (const width of WIDTHS) {
     for (const dir of dirs) {
       for (const page of PAGES) {
         await b.send('Emulation.setDeviceMetricsOverride', { width, height: 900, deviceScaleFactor: 1, mobile: false });
-        await b.send('Page.navigate', { url: pathToFileURL(join(MOCKS, dir, `${page}.html`)).href });
         errors.length = 0;
-        await b.sleep(1200);
+        await b.navigate(pathToFileURL(join(MOCKS, dir, `${page}.html`)).href);
         const info = await b.evaluate(`document.fonts.ready.then(() => ({
           height: document.documentElement.scrollHeight,
           overflowX: document.documentElement.scrollWidth > innerWidth,
@@ -49,8 +47,8 @@ for (const [i, width] of WIDTHS.entries()) {
         report.push({ file, height: info.height, overflowX: info.overflowX, clippedTables: info.clippedTables, fontProblems: info.fonts, errors: [...errors] });
       }
     }
-  } finally {
-    await b.close();
   }
+} finally {
+  await b.close();
 }
 console.log(JSON.stringify(report, null, 1));

@@ -30,10 +30,14 @@ export async function open(url, { width = 1366, height = 768, port = 9223, profi
   };
   await send('Page.enable'); await send('Runtime.enable');
   await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
-  const loaded = new Promise((r) => listeners.push((m) => m.method === 'Page.loadEventFired' && r()));
-  await send('Page.navigate', { url });
-  await loaded; await sleep(1500);
-  const close = async () => { try { await send('Browser.close'); } catch {} ws.close(); proc.kill(); };
   const on = (listener) => listeners.push(listener);
-  return { send, evaluate, close, sleep, on };
+  // Resolves on the page's load event. Listeners are never removed, which is fine for these short-lived sessions.
+  const navigate = async (target) => {
+    const loaded = new Promise((r) => on((m) => m.method === 'Page.loadEventFired' && r()));
+    await send('Page.navigate', { url: target });
+    await loaded;
+  };
+  await navigate(url); await sleep(1500);
+  const close = async () => { try { await send('Browser.close'); } catch {} ws.close(); proc.kill(); };
+  return { send, evaluate, close, sleep, on, navigate };
 }

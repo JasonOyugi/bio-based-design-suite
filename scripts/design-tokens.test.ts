@@ -1,7 +1,6 @@
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { readDesignTokens, tokensToCss } from './design-tokens';
+import { TOKENS_CSS, buildTokensCss, readDesignTokens, tokensToCss } from './design-tokens';
 
 const md = (front: string) => `---\n${front}\n---\n\n## Overview\n`;
 
@@ -19,6 +18,10 @@ describe('readDesignTokens', () => {
     const t = readDesignTokens(md('colors:\n  ink: "#111111"\n  text: "{colors.ink}"'));
     expect(t.colors.text).toBe('#111111');
     expect(() => readDesignTokens(md('colors:\n  text: "{colors.missing}"'))).toThrow(/colors\.missing/);
+  });
+
+  it('needs units on colours, spacing and radii', () => {
+    expect(() => readDesignTokens(md(['spacing:', '  touch: 40'].join(String.fromCharCode(10))))).toThrow(/spacing\.touch/);
   });
 
   it('resolves references inside typography properties', () => {
@@ -71,7 +74,6 @@ describe('tokensToCss', () => {
 
 describe('src/styles/tokens.css', () => {
   it('is up to date with DESIGN.md (run `npm run tokens`)', () => {
-    const read = (p: string) => readFileSync(fileURLToPath(new URL(p, import.meta.url)), 'utf8');
-    expect(read('../src/styles/tokens.css')).toBe(tokensToCss(readDesignTokens(read('../DESIGN.md'))));
+    expect(readFileSync(TOKENS_CSS, 'utf8')).toBe(buildTokensCss());
   });
 });

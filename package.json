@@ -8,14 +8,14 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run validate:data && npm run tokens && npm run typecheck && vite build",
+    "build": "npm run validate:data && npm run tokens -- --check && npm run typecheck && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "validate:data": "tsx scripts/validate-data.ts",
     "spike": "vite --config spikes/vite.config.ts",
-    "tokens": "tsx scripts/design-tokens.ts"
+    "tokens": "tsx scripts/write-tokens.ts"
   },
   "dependencies": {
     "@fontsource/barlow-condensed": "5.3.0",

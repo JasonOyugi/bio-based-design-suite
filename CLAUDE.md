@@ -14,7 +14,7 @@ Available once the Phase 0 scaffold lands:
 - `npm test` – Vitest, single run
 - `npm run build` – validate `/data`, typecheck, production build
 - `npm run validate:data` – zod-validate every JSON file under `/data`
-- `npm run tokens` – regenerate `src/styles/tokens.css` from `DESIGN.md` (also runs in `build`)
+- `npm run tokens` – regenerate `src/styles/tokens.css` from `DESIGN.md` (`build` fails if it is out of date)
 - `npm run spike` – throwaway spike sandbox (`spikes/`), not part of the app
 
 ## Folder map

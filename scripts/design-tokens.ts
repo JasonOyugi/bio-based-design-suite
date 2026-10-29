@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'yaml';
 
@@ -31,10 +31,15 @@ export function readDesignTokens(markdown: string): DesignTokens {
     if (target === undefined) throw new Error(`DESIGN.md: broken token reference {${ref[1]}}`);
     return resolve(target, ref[1]!, [...seen, ref[1]!]);
   };
-  const entries = (name: string) => Object.entries((raw[name] ?? {}) as Record<string, unknown>);
-  const group = (name: string) => Object.fromEntries(entries(name).map(([k, v]) => [k, resolve(v, `${name}.${k}`)])) as Record<string, string>;
-  const typography = Object.fromEntries(entries('typography').map(([name, style]) => [name,
-    Object.fromEntries(Object.entries(style as Record<string, unknown>).map(([k, v]) => [k, resolve(v, `typography.${name}.${k}`)]))])) as Record<string, Typography>;
+  const entries = (obj: unknown) => Object.entries((obj ?? {}) as Record<string, unknown>);
+  const resolveAll = (obj: unknown, prefix: string) => Object.fromEntries(entries(obj).map(([k, v]) => [k, resolve(v, `${prefix}.${k}`)]));
+  // Colours, spacing and radii are CSS values with units, so a bare YAML number (40 rather than 40px) is an error.
+  const group = (name: string) => {
+    const values = resolveAll(raw[name], name);
+    for (const [k, v] of Object.entries(values)) if (typeof v !== 'string') throw new Error(`DESIGN.md: ${name}.${k} must be a string with a unit`);
+    return values as Record<string, string>;
+  };
+  const typography = Object.fromEntries(entries(raw.typography).map(([name, style]) => [name, resolveAll(style, `typography.${name}`)])) as Record<string, Typography>;
   return { colors: group('colors'), spacing: group('spacing'), rounded: group('rounded'), typography };
 }
 
@@ -57,8 +62,6 @@ export function tokensToCss(t: DesignTokens): string {
   return `/* Generated from DESIGN.md by scripts/design-tokens.ts. Do not edit; run \`npm run tokens\`. */\n:root {\n${lines.map((l) => `  ${l}`).join('\n')}\n}\n`;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  const at = (p: string) => fileURLToPath(new URL(p, import.meta.url));
-  writeFileSync(at('../src/styles/tokens.css'), tokensToCss(readDesignTokens(readFileSync(at('../DESIGN.md'), 'utf8'))));
-  console.log('Wrote src/styles/tokens.css from DESIGN.md');
-}
+export const DESIGN_MD = fileURLToPath(new URL('../DESIGN.md', import.meta.url));
+export const TOKENS_CSS = fileURLToPath(new URL('../src/styles/tokens.css', import.meta.url));
+export const buildTokensCss = () => tokensToCss(readDesignTokens(readFileSync(DESIGN_MD, 'utf8')));
